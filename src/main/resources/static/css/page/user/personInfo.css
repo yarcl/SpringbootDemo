@@ -1,0 +1,31 @@
+body{
+    background-color: #e3e3e3;
+}
+
+.person-info .person-info-title{
+    margin-left: 20px;
+    height:auto;
+    border-bottom: solid;
+    border-bottom-color: #71baf1;
+}
+
+.person-info .person-info div{
+    float: left;
+}
+
+.person-info .person-info-content{
+    margin: 20px 20px;
+    background-color: inherit;
+    clear: both;
+}
+
+.person-info .person-info-content .person-table{
+    margin: 0 auto;
+    width: 60%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.person-info .person-info-content .person-table tr{
+    text-align: center;
+}

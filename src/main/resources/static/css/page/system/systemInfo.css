@@ -1,0 +1,48 @@
+body{
+    background-color: #e3e3e3;
+}
+
+.system-info .system-info-title{
+    margin-left: 20px;
+    height:auto;
+    border-bottom: solid;
+    border-bottom-color: #71baf1;
+}
+
+.system-info .system-info div{
+    float: left;
+}
+
+.system-info .system-info-content{
+    margin: 20px 20px;
+    background-color: inherit;
+    clear: both;
+}
+
+.system-info .system-info-content .system-law{
+    margin: 0 auto;
+    width: 60%;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.system-info .system-info-content .system-law dt{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ed495f;
+}
+
+.system-info .system-info-content .system-law dd{
+    margin-top: 50px;
+}
+
+
+.system-info .system-info-content .system-law dd .system-law-info {
+    text-indent: 2em;
+    width: 380px;
+    margin: 0 auto;
+    line-height: 35px;
+}
+

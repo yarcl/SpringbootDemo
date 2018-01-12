@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑","Microsoft Sans Serif", "宋体";
+}
+body{
+    background-color: #e3e3e3;
+}
+
+.razor-nav{
+    background-color: #3079e6;
+    width:100%;
+    height: 53px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius:8px;
+}
+
+.razor-nav .logo img{
+    width:53px;
+    height: 53px;
+    margin-top: -14px;
+    margin-left: -2px;
+}
+
+.razor-nav .logo .logo-title{
+    height: 53px;
+    font-size: 28px;
+    color: #fff;
+    line-height: 53px;
+    margin-left: 10px;
+}
+
+.razor-nav .nav-right{
+    float: right;
+}
+
+.razor-nav .nav-right ul>li{
+    float: left;
+    margin: -36px 15px 20px 0px;
+    list-style: none;
+}
+
+.razor-nav .nav-right ul>li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-list th, .admin-list td{
+    text-align: center;
+}
+
+.admin-list .admin-title{
+    height: 40px;
+    margin-left: 20px;
+    border-bottom: solid;
+    border-bottom-color: #71baf1;
+}
+
+.admin-list .admin-title div{
+    float: left;
+}
+
+.admin-list .admin-title .razor-btn div{
+    margin: 12px 0 10px 15px;
+    width:40px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.admin-list .admin-content{
+    margin: 20px 20px;
+    background-color: #fff;
+    clear: both;
+    border-radius: 10px;
+}
+
+.admin-list .product-page-tag *{
+    margin:0 auto;
+    text-align: center;
+    font-size: 14px;
+    color: ;
+}
+
+.admin-list .admin-find {
+    height: 40px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.admin-list .admin-find .admin-condition{
+    padding-top: 15px;
+}
+
+.admin-list .admin-find .admin-condition div{
+    float: left;
+    width: 26%;
+    text-align: center;
+}
+
+.admin-list .admin-find .admin-condition div.special{
+    width:38%;
+}
+
+.admin-list .admin-find .admin-condition div.img{
+    width:6%;
+    margin-top: -4px;
+}

@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑","Microsoft Sans Serif", "宋体";
+}
+body{
+    background-color: #e3e3e3;
+}
+
+.razor-nav{
+    background-color: #3079e6;
+    width:100%;
+    height: 53px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius:8px;
+}
+
+.razor-nav .logo img{
+    width:53px;
+    height: 53px;
+    margin-top: -14px;
+    margin-left: -2px;
+}
+
+.razor-nav .logo .logo-title{
+    height: 53px;
+    font-size: 28px;
+    color: #fff;
+    line-height: 53px;
+    margin-left: 10px;
+}
+
+.razor-nav .nav-right{
+    float: right;
+}
+
+.razor-nav .nav-right ul>li{
+    float: left;
+    margin: -36px 15px 20px 0px;
+    list-style: none;
+}
+
+.razor-nav .nav-right ul>li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-list th, .menu-list td{
+    text-align: center;
+}
+
+.menu-list .menu-title{
+    height: 40px;
+    margin-left: 20px;
+    border-bottom: solid;
+    border-bottom-color: #71baf1;
+}
+
+.menu-list .menu-title div{
+    float: left;
+}
+
+.menu-list .menu-title .razor-btn div{
+    margin: 12px 0 10px 15px;
+    width:40px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-list .menu-content{
+    margin: 20px 20px;
+    background-color: #fff;
+    clear: both;
+    border-radius: 10px;
+}
+
+.menu-list .product-page-tag *{
+    margin:0 auto;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+}
+
+.menu-list .menu-find {
+    height: 40px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.menu-list .menu-find .menu-condition{
+    padding-top: 15px;
+}
+
+.menu-list .menu-find .menu-condition div{
+    float: left;
+    width: 26%;
+    text-align: center;
+}
+
+.menu-list .menu-find .menu-condition div.special{
+    width:38%;
+}
+
+.menu-list .menu-find .menu-condition div.img{
+    width:6%;
+    margin-top: -4px;
+}
+

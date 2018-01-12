@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+body{
+    background: url("../img/backimg.jpg") no-repeat;
+    background-position: 0 0;
+    overflow: hidden;
+    color: #fff;
+}
+
+.login{
+    width: 400px;
+    height: auto;
+    position: relative;
+    margin: 150px auto;
+    padding-top: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(116,225,231,0);
+}
+
+.logo {
+    width: 180px;
+    height:40px;
+    margin: 0 auto;
+}
+
+.logo .logo-img{
+    width: 40px;
+    height:40px;
+    float: left;
+}
+
+.logo .logo-title{
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.login .login-form{
+    width:440px;
+    margin-top:10px;
+}
+
+.login-form .login-form-container .form-input .in span, input{
+    margin-right: 10px;
+    /*margin-top: 10px;*/
+    margin-bottom: 10px;
+}
+
+.login .login-form .login-form-container .form-input .form-sub{
+    width: 140px;
+    height:32px;
+    background: url("../img/submit.jpg") no-repeat;
+    background-position: -31px -32px;
+
+    margin-left: 35px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.login .login-form .login-form-container .form-input .form-sub input {
+    width:140px;
+    height:32px;
+    background-color: rgba(255,255,255,0);
+    border:0;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.login .login-form .login-form-container .form-input .input-content{
+    width:250px;
+    margin: 0 auto;
+}
+
+.login .login-form .login-form-container .form-input .input-content li{
+    list-style: none;
+}

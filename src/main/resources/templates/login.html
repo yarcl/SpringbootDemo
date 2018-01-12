@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Web JS 无码配置后台页面</title>
+    <link rel="stylesheet" href="css/common.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="login">
+    <div class="backimg">
+        <div class="logo">
+            <div class="logo-img">
+                <img src="img/global.logo" width="40" height="40"/>
+            </div>
+            <div class="logo-title">
+                <strong>登录系统后台</strong>
+            </div>
+        </div>
+        <div class="login-form">
+            <div class="login-form-container">
+                <div class="form-input">
+                    <ul class="input-content">
+                        <li class="in"><span>用&nbsp;&nbsp;&nbsp;户:</span><input id="userName" type="text" name="username" placeholder="请输入用户名"/></li>
+                        <li class="in"><span>密&nbsp;&nbsp;&nbsp;码:</span><input id="password" type="password" name="password" placeholder="请求输入密码"/></li>
+                        <li class="form-sub"><input type="submit" value=""/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(".form-sub").click(function(){
+        $.ajax({
+            type:'post',
+            url:'user/login.do',
+            async:true,
+            data:{
+                username:$("#userName").val(),
+                password:$("#password").val()
+            },
+            dataType:'json',
+            success: function(data){
+                var flag =  data.flag;
+                if(flag){
+                    window.location.href = "/comm/index";
+                } else {
+                    window.location.href = window.location.href;
+                }
+            },
+            error:function(e){
+                console.log(e);
+            }
+        });
+    });
+</script>
+</body>
+</html>
