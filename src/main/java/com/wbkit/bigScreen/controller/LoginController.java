@@ -22,10 +22,14 @@ import java.util.List;
 @RestController
 @EnableAutoConfiguration
 @RequestMapping("/user")
+@ConfigurationProperties(locations = "classpath:/application.properties")
 public class LoginController {
     private Logger logger = Logger.getLogger(LoginController.class);
     @Autowired
     private UserService userService;
+
+    @Value("${spring.datasource.mysql.url}")
+    private String url;
 
     @RequestMapping(value="/login.do", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
     public Object routeToWelcome(String username, String password, HttpServletRequest request) throws IOException {
@@ -44,6 +48,7 @@ public class LoginController {
         } catch(Exception e){
             e.printStackTrace();
         }
+        System.out.println(url);
         return obj;
     }
 }

@@ -3,18 +3,22 @@ package com.wbkit.bigScreen.util;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * Created by Administrator on 2018/1/12.
  */
-@Component
+@ComponentScan
 @ConfigurationProperties(locations = "classpath:/application.properties")
-@EnableAutoConfiguration
 public class PropertiesConfiguration {
-
-    private static PropertiesConfiguration propertiesConfiguration;
-
     //注意不能使用static静态变量，默认不支持
     @Value("${spring.datasource.mysql.url}")
     private String mysqlUrl;
@@ -65,6 +69,28 @@ public class PropertiesConfiguration {
 
     public String getOracleDriverClassName() {
         return oracleDriverClassName;
+    }
+
+    public PropertiesConfiguration() {
+    }
+
+    public PropertiesConfiguration(boolean flag){
+        try{
+            InputStream inputStream =
+                    PropertiesConfiguration.class.getClassLoader().getResourceAsStream("application.properties");
+            Properties properties = new Properties();
+            properties.load(inputStream);
+            this.mysqlUrl = properties.getProperty("spring.datasource.mysql.url");
+            this.mysqlUsername = properties.getProperty("spring.datasource.mysql.username");
+            this.mysqlPassword = properties.getProperty("spring.datasource.mysql.password");
+            this.mysqlDriverClassName = properties.getProperty("spring.datasource.mysql.driverClassName");
+            this.oracleUrl = properties.getProperty("spring.datasource.oracle.url");
+            this.oracleUsername = properties.getProperty("spring.datasource.oracle.username");
+            this.oraclePassword = properties.getProperty("spring.datasource.oracle.password");
+            this.oracleDriverClassName = properties.getProperty("spring.datasource.oracle.driverClassName");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
     /*public synchronized static PropertiesConfiguration getPropertiesInstance(){
         if(propertiesConfiguration == null){
