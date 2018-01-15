@@ -1,26 +1,24 @@
 package com.wbkit.bigScreen.util;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
+
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import java.sql.SQLException;
+
 
 /**
  * Created by Administrator on 2018/1/12.
@@ -33,19 +31,20 @@ public class OracleConfig {
 
     @Bean(name="oracleDatasource")
     @Primary
-    public static DataSource dataSource2() {
-        DataSource dataSource = new DataSource();
+    public static DruidDataSource dataSource2() throws SQLException {
+        DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertiesConfiguration.getOracleUrl());
         dataSource.setUsername(propertiesConfiguration.getOracleUsername());
         dataSource.setPassword(propertiesConfiguration.getOraclePassword());
         dataSource.setDriverClassName(propertiesConfiguration.getOracleDriverClassName());
+        dataSource.setFilters(propertiesConfiguration.getMysqlFilters());
         return dataSource;
     }
 
     // 事物管理器
     @Bean(name = "oracleTransManager")
     @Primary
-    public static PlatformTransactionManager transactionManager() {
+    public static PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource2());
     }
 

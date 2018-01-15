@@ -1,15 +1,11 @@
 package com.wbkit.bigScreen.util;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import org.apache.log4j.Logger;
 
-import java.io.IOException;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import org.springframework.context.annotation.ComponentScan;
+
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -19,30 +15,23 @@ import java.util.Properties;
 @ComponentScan
 @ConfigurationProperties(locations = "classpath:/application.properties")
 public class PropertiesConfiguration {
+
+    private Logger logger = Logger.getLogger(PropertiesConfiguration.class);
     //注意不能使用static静态变量，默认不支持
-    @Value("${spring.datasource.mysql.url}")
     private String mysqlUrl;
-
-    @Value("${spring.datasource.mysql.username}")
     private String mysqlUsername;
-
-    @Value("${spring.datasource.mysql.password}")
     private String mysqlPassword;
-
-    @Value("${spring.datasource.mysql.driverClassName}")
     private String mysqlDriverClassName;
-
-    @Value("${spring.datasource.oracle.url}")
     private String oracleUrl;
-
-    @Value("${spring.datasource.oracle.username}")
     private String oracleUsername;
-
-    @Value("${spring.datasource.oracle.password}")
     private String oraclePassword;
-
-    @Value("${spring.datasource.oracle.driverClassName}")
     private String oracleDriverClassName;
+    private String mysqlFilters;
+    private String oracleFilters;
+    private String mysqlPrincipalSessionName;
+    private String oraclePrincipalSessionName;
+
+
 
     public String getMysqlUrl() {
         return mysqlUrl;
@@ -71,8 +60,25 @@ public class PropertiesConfiguration {
         return oracleDriverClassName;
     }
 
+    public String getMysqlFilters() {
+        return mysqlFilters;
+    }
+
+    public String getOracleFilters() {
+        return oracleFilters;
+    }
+
+    public String getMysqlPrincipalSessionName() {
+        return mysqlPrincipalSessionName;
+    }
+
+    public String getOraclePrincipalSessionName() {
+        return oraclePrincipalSessionName;
+    }
+
     public PropertiesConfiguration() {
     }
+
 
     public PropertiesConfiguration(boolean flag){
         try{
@@ -84,19 +90,16 @@ public class PropertiesConfiguration {
             this.mysqlUsername = properties.getProperty("spring.datasource.mysql.username");
             this.mysqlPassword = properties.getProperty("spring.datasource.mysql.password");
             this.mysqlDriverClassName = properties.getProperty("spring.datasource.mysql.driverClassName");
+            this.mysqlFilters = properties.getProperty("spring.datasource.oracle.filters");
+            this.mysqlPrincipalSessionName = properties.getProperty("spring.datasource.mysql.principalSessionName");
             this.oracleUrl = properties.getProperty("spring.datasource.oracle.url");
             this.oracleUsername = properties.getProperty("spring.datasource.oracle.username");
             this.oraclePassword = properties.getProperty("spring.datasource.oracle.password");
             this.oracleDriverClassName = properties.getProperty("spring.datasource.oracle.driverClassName");
+            this.oracleFilters = properties.getProperty("spring.datasource.oracle.filters");
+            this.oraclePrincipalSessionName = properties.getProperty("spring.datasource.oracle.principalSessionName");
         } catch (Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
     }
-    /*public synchronized static PropertiesConfiguration getPropertiesInstance(){
-        if(propertiesConfiguration == null){
-            return propertiesConfiguration = new PropertiesConfiguration();
-        } else {
-            return propertiesConfiguration;
-        }
-    }*/
 }

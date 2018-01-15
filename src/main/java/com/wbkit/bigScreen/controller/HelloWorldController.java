@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -18,8 +19,8 @@ public class HelloWorldController {
         return "Hello World";
     }
 
-    @RequestMapping("/hello/{userId}")
-    public Object getAllTest(@PathVariable("userId") String userId, ModelMap map) {
+    @RequestMapping("hello/{userId}")
+    public @ResponseBody Object getAllTest(@PathVariable("userId") String userId, ModelMap map) {
         JSONObject obj = new JSONObject();
         obj.put("user", new String("Hello World:" + userId));
         return obj;

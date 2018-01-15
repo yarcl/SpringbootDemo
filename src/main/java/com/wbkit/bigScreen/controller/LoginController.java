@@ -25,6 +25,7 @@ import java.util.List;
 @ConfigurationProperties(locations = "classpath:/application.properties")
 public class LoginController {
     private Logger logger = Logger.getLogger(LoginController.class);
+
     @Autowired
     private UserService userService;
 
@@ -34,21 +35,16 @@ public class LoginController {
     @RequestMapping(value="/login.do", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
     public Object routeToWelcome(String username, String password, HttpServletRequest request) throws IOException {
         JSONObject obj = new JSONObject();
-        System.out.println(username);
-        System.out.println(password);
-        obj.put("flag", true);
         try{
             List<UserBean> users = userService.getAllUserInfo();
-
             if(users!=null){
                 obj.put("flag", true);
             } else {
                 obj.put("flag", false);
             }
         } catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
         }
-        System.out.println(url);
         return obj;
     }
 }
