@@ -23,6 +23,8 @@ import java.sql.SQLException;
 /**
  * Created by Administrator on 2018/1/12.
  */
+
+
 @Configuration
 @EnableAutoConfiguration
 @MapperScan(basePackages = {"com.wbkit.bigScreen.dao.oracle"},  sqlSessionTemplateRef="oracleSessionTemplate")
@@ -30,7 +32,6 @@ public class OracleConfig {
     private static PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration(true);
 
     @Bean(name="oracleDatasource")
-    @Primary
     public static DruidDataSource dataSource2() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertiesConfiguration.getOracleUrl());
@@ -43,14 +44,12 @@ public class OracleConfig {
 
     // 事物管理器
     @Bean(name = "oracleTransManager")
-    @Primary
     public static PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource2());
     }
 
     //提供SqlSeesion
     @Bean(name = "oracleSessionFactory")
-    @Primary
     public static SqlSessionFactory oracleSqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource2());
@@ -61,7 +60,6 @@ public class OracleConfig {
 
     //提供SqlSeesion
     @Bean(name = "oracleSessionTemplate")
-    @Primary
     public static SqlSessionTemplate mysqlSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(oracleSqlSessionFactoryBean());
     }

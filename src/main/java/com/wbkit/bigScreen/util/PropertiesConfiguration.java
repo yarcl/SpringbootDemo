@@ -1,7 +1,7 @@
 package com.wbkit.bigScreen.util;
 
-import org.apache.log4j.Logger;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import org.springframework.context.annotation.ComponentScan;
@@ -13,10 +13,10 @@ import java.util.Properties;
  * Created by Administrator on 2018/1/12.
  */
 @ComponentScan
-@ConfigurationProperties(locations = "classpath:/application.properties")
+@ConfigurationProperties("application.properties")
 public class PropertiesConfiguration {
 
-    private Logger logger = Logger.getLogger(PropertiesConfiguration.class);
+    private Logger logger = LogManager.getLogger(PropertiesConfiguration.class);
     //注意不能使用static静态变量，默认不支持
     private String mysqlUrl;
     private String mysqlUsername;
@@ -90,8 +90,9 @@ public class PropertiesConfiguration {
             this.mysqlUsername = properties.getProperty("spring.datasource.mysql.username");
             this.mysqlPassword = properties.getProperty("spring.datasource.mysql.password");
             this.mysqlDriverClassName = properties.getProperty("spring.datasource.mysql.driverClassName");
-            this.mysqlFilters = properties.getProperty("spring.datasource.oracle.filters");
+            this.mysqlFilters = properties.getProperty("spring.datasource.mysql.filters");
             this.mysqlPrincipalSessionName = properties.getProperty("spring.datasource.mysql.principalSessionName");
+
             this.oracleUrl = properties.getProperty("spring.datasource.oracle.url");
             this.oracleUsername = properties.getProperty("spring.datasource.oracle.username");
             this.oraclePassword = properties.getProperty("spring.datasource.oracle.password");

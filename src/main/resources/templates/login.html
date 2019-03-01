@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Web JS 无码配置后台页面</title>
-    <link rel="stylesheet" href="css/common.css" type="text/css"/>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/common.css" type="text/css"/>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="login">
     <div class="backimg">
         <div class="logo">
             <div class="logo-img">
-                <img src="img/global.logo" width="40" height="40"/>
+                <img src="/static/img/global.logo" width="40" height="40"/>
             </div>
             <div class="logo-title">
                 <strong>登录系统后台</strong>
@@ -35,7 +35,7 @@
     $(".form-sub").click(function(){
         $.ajax({
             type:'post',
-            url:'user/login.do',
+            url:'/user/login.do',
             async:true,
             data:{
                 username:$("#userName").val(),

@@ -3,7 +3,7 @@
 <mapper namespace="com.wbkit.bigScreen.dao.mysql.UserMapper">
 
   <select id="findUserInfo" resultType="com.wbkit.bigScreen.bean.UserBean">
-    select id,  name as username, age,password from user
+    select id,  name as username, age,password from razor_user
   </select>
 
 </mapper>

@@ -1,9 +1,11 @@
 package com.wbkit.bigScreen.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2018/1/12.
  */
-public class UserBean {
+public class UserBean implements Serializable {
     private String id;
     private String username;
     private String password;

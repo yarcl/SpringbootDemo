@@ -10,5 +10,5 @@ import java.util.List;
  */
 @MapperScan
 public interface TestUserMapper {
-    public List<UserBean> findUserInfo();
+    List<UserBean> findUserInfo();
 }

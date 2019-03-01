@@ -11,5 +11,5 @@ import java.util.List;
 
 public interface UserService {
 
-    public List<UserBean> getAllUserInfo();
+    List<UserBean> getAllUserInfo();
 }

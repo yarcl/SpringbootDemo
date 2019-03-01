@@ -16,7 +16,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    public TestUserMapper userMapper;
+    public UserMapper userMapper;
 
     @Override
     public List<UserBean> getAllUserInfo() {

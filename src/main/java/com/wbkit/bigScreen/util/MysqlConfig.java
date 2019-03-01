@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -29,6 +30,7 @@ public class MysqlConfig {
     private static PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration(true);
 
     @Bean
+    @Primary
     public static DruidDataSource dataSource1() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertiesConfiguration.getMysqlUrl());
@@ -36,17 +38,22 @@ public class MysqlConfig {
         dataSource.setPassword(propertiesConfiguration.getMysqlPassword());
         dataSource.setDriverClassName(propertiesConfiguration.getMysqlDriverClassName());
         dataSource.setFilters(propertiesConfiguration.getMysqlFilters());
+        dataSource.setRemoveAbandoned(true);
+        dataSource.setLogAbandoned(true);
+        dataSource.setRemoveAbandonedTimeout(180);
         return dataSource;
     }
 
     // 事物管理器
     @Bean
+    @Primary
     public static PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource1());
     }
 
     //提供SqlSeesion
     @Bean
+    @Primary
     public static SqlSessionFactory mysqlSqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource1());
@@ -57,6 +64,7 @@ public class MysqlConfig {
 
     //提供SqlSeesion
     @Bean(name = "mysqlSessionTemplate")
+    @Primary
     public static SqlSessionTemplate mysqlSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(mysqlSqlSessionFactoryBean());
     }
