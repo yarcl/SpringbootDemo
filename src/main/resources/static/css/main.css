@@ -19,8 +19,9 @@ body{
 .razor-nav .logo img{
     width:53px;
     height: 53px;
-    margin-top: -14px;
-    margin-left: -2px;
+    margin-top: -18px;
+    margin-left: 0px;
+    border-radius: 100px 100px 70px 70px;
 }
 
 .razor-nav .logo .logo-title{

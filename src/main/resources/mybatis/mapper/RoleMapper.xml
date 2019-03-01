@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="com.yarcl.springquart.dao.RoleMapper">
+
+        <sql id="allColumn">
+            role_id, role_name, is_active, is_delete
+        </sql>
+
+            <resultMap id="rm" type="com.yarcl.springquart.bean.RazorRole">
+                <id property="roleId" column="role_id"/>
+                <result property="roleName" column="role_name"></result>
+                <result property="isActive" column="is_active"></result>
+                <result property="isDelete" column="is_delete"></result>
+            </resultMap>
+
+            <select id="allRoleInfo" resultMap="rm">
+                select
+                  <include refid="allColumn"/>
+                from
+                  RAZOR_ROLE
+                limit #{param1}, #{param2}
+            </select>
+
+            <select id="getRoleCount" resultType="int">
+
+                select count(1) from RAZOR_ROLE
+
+            </select>
+	</mapper>
