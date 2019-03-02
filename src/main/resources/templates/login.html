@@ -36,6 +36,7 @@
         $.ajax({
             type:'post',
             url:'/user/login.do',
+            //contentType: 'application/json',
             async:true,
             data:{
                 username:$("#userName").val(),
@@ -43,6 +44,8 @@
             },
             dataType:'json',
             success: function(data){
+                var content = data.content;
+                console.log(content);
                 var flag =  data.flag;
                 if(flag){
                     window.location.href = "/comm/index";
