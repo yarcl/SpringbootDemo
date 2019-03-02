@@ -18,7 +18,7 @@
         <div class="backimg">
             <div class="logo">
                 <div class="logo-img">
-                    <img src="img/global.logo1" width="40" height="40">
+                    <img src="img/global.logo" width="40" height="40">
                 </div>
                 <div class="logo-title">
                     <strong>登录系统后台</strong>
