@@ -29,7 +29,7 @@ public class MysqlConfig {
 
     private static PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration(true);
 
-    @Bean
+    @Bean("dataSourceBean")
     @Primary
     public static DruidDataSource dataSource1() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
