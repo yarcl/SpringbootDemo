@@ -16,6 +16,7 @@ public class ProductController {
 
     @RequestMapping("/myProductInfo.do")
     public ModelAndView allProductInfo(ModelAndView mav, String userId, String nowPage){
+        System.out.println("hello product!!!");
         /*if(nowPage!=null && !"".equals(nowPage)){
             pageBean.setNowPage(Integer.parseInt(nowPage));
         }
@@ -23,7 +24,8 @@ public class ProductController {
         pageBean.setCount(razorProductService.getProductCount());
         mav.addObject("razorProductList", razorProductList);
         mav.addObject("page", pageBean);
-        mav.setViewName("page/product/productList.jsp");*/
+        */
+        mav.setViewName("/page/product/productList.html");
         return mav;
     }
 

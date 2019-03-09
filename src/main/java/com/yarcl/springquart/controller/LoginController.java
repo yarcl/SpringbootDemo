@@ -34,7 +34,7 @@ public class LoginController {
 
     /*@Value("${spring.datasource.mysql.url}")
     private String url;*/
-
+    // 访问登录页面1
     @PostMapping(value="/login1.do", produces = {"application/json;charset=utf-8"})
     public Object routeToWelcome(String username, String password, HttpServletRequest request) throws IOException {
         JSONObject obj = new JSONObject();
@@ -51,6 +51,7 @@ public class LoginController {
         return obj;
     }
 
+    // 访问登录页面2
     @ResponseBody
     @PostMapping(value = "login.do")
     public Response login(@RequestParam("username") String username, @RequestParam("password") String password){
@@ -63,6 +64,7 @@ public class LoginController {
         return Response.success(user);
     }
 
+    // 退出登录接口
     @GetMapping("/loginOut.do")
     public ModelAndView loginOut(ModelAndView mav, HttpServletRequest request){
         HttpSession session = request.getSession();
@@ -70,7 +72,7 @@ public class LoginController {
             //System.out.print(((User)session.getAttribute("user")).getName());
             session.removeAttribute("user");
         }
-        mav.setViewName("/login.jsp");
+        mav.setViewName("/login");
         return mav;
     }
 }
