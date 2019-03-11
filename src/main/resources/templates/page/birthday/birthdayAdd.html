@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/page/birthday/birthdayAdd.css" type="text/css">
+<div class="person-info">
+    <div class="person-info-title">
+        <div><h4>>>生日新增</h4></div>
+    </div>
+    <div class="person-info-content">
+        <table class="person-table table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th colspan="2" class="text-center">生日新增</th>
+            </tr>
+            </thead>
+            <form action="/user/editPersonInfo.do" method="post">
+                <tr>
+                    <td>姓名:</td>
+                    <td><input type="text" name="birthName" required></td>
+                </tr>
+                <tr>
+                    <td>生日日期:</td>
+                    <td><input type="text" name="birthdayDt" required></td>
+                </tr>
+                <tr>
+                    <td>是否农历:</td>
+                    <td>
+                        <input type="radio" checked name="isTradition" value="1"/> 是
+                        <input type="radio" name="isTradition" value="0"/> 否
+                       <!-- <select name="isTradition" required>
+                            <option value="1">是</option>
+                            <option value="2">否</option>
+                        </select>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="#"><button class="btn btn-primary btn-info" type="submit">保存</button></a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
