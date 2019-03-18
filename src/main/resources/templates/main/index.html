@@ -11,6 +11,7 @@
 
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/lib/ejs.js"></script>
 </head>
 <body>
 <div style="width: 1280px;margin: 0 auto; background-color: rgba(0,0,0,0.1)">
@@ -19,7 +20,12 @@
         <div class="logo"><img src="/static/img/global.logo"/><span class="logo-title">Yarcl的个人博客</span></div>
         <div class="nav-right">
             <ul>
-                <li><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<a href="#">${user.name}</a></li>
+                <li><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;<a href="#">
+                    <!--<% if (user) { %>
+                    <h2><%= user.name %></h2>
+                    <% } %>-->
+                    <h2>${user.name}</h2>
+                </a></li>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <li><a href="/user/loginOut.do">退出</a></li>
             </ul>
