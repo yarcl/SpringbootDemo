@@ -1,3 +1,5 @@
 window.onload = function() {
-    $("#index-name").html($.yarcl);
+    var user = localStorage.getItem("user");
+    console.log(user);
+    $("#index-name").html(JSON.parse(user).name);
 }
