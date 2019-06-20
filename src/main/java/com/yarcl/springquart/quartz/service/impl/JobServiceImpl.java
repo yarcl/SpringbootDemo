@@ -30,39 +30,6 @@ public class JobServiceImpl implements JobService {
     SystemConstantImpl systemConstant = SystemConstantImpl.initObject();
 
     /**
-     * 创建一个定时任务
-     * @param jobName
-     * @param jobGroup
-     */
-    /*@Override
-    public void addCronJob(String jobName, String jobGroup, SchedulerDo schedulerDo) {
-        try {
-            jobName = jobName+schedulerDo.getRemindDt().getTime()+ UUID.randomUUID();
-            String dateCron = new SimpleDateFormat("ss mm HH dd MM ? yyyy").format(schedulerDo.getRemindDt());
-
-            Scheduler scheduler = schedulerFactoryBean.getScheduler();
-            JobKey jobKey = JobKey.jobKey(jobName, jobGroup);
-            JobDetail jobDetail = scheduler.getJobDetail(jobKey);
-            if (jobDetail == null) {
-                //构建job信息
-                jobDetail = JobBuilder.newJob(CronJob.class).withIdentity(jobName, jobGroup).build();
-                //用JopDataMap来传递数据
-                jobDetail.getJobDataMap().put("executeClass", SchedulerDo.class.getSimpleName());
-                jobDetail.getJobDataMap().put("executeFunction", schedulerDo);
-                //表达式调度构建器(即任务执行的时间)
-                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(dateCron);
-
-                //按新的cronExpression表达式构建一个新的trigger
-                CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(jobName + "_trigger", jobGroup + "_trigger")
-                        .withSchedule(scheduleBuilder).build();
-                scheduler.scheduleJob(jobDetail, trigger);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
-    /**
      * 定时触发的功能接口
      *
      * @param jobName  工作名称
@@ -83,7 +50,6 @@ public class JobServiceImpl implements JobService {
                             QuartzConstant.QUARTZ_DATE_NOT_NULL));
         }
         // 参数不能为空
-
         try {
             String dateCron = new SimpleDateFormat("ss mm HH dd MM ? yyyy").format(date);
             Scheduler scheduler = schedulerFactoryBean.getScheduler();
@@ -131,7 +97,6 @@ public class JobServiceImpl implements JobService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

@@ -41,6 +41,7 @@ public class MysqlConfig {
         dataSource.setRemoveAbandoned(true);
         dataSource.setLogAbandoned(true);
         dataSource.setRemoveAbandonedTimeout(180);
+        dataSource.setBreakAfterAcquireFailure(true);
         return dataSource;
     }
 

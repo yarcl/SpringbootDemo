@@ -30,7 +30,7 @@ import java.sql.SQLException;
 public class OracleConfig {
     private static PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration(true);
 
-    @Bean(name="oracleDatasource")
+    @Bean(name="oracleDataSource")
     public static DruidDataSource dataSource2() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertiesConfiguration.getOracleUrl());
@@ -38,6 +38,7 @@ public class OracleConfig {
         dataSource.setPassword(propertiesConfiguration.getOraclePassword());
         dataSource.setDriverClassName(propertiesConfiguration.getOracleDriverClassName());
         dataSource.setFilters(propertiesConfiguration.getMysqlFilters());
+        System.out.println("initialize dataSource2");
         return dataSource;
     }
 

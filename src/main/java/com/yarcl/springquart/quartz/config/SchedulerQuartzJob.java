@@ -19,7 +19,6 @@ public class SchedulerQuartzJob extends SpringBeanJobFactory implements Applicat
         public void setApplicationContext(final ApplicationContext context) {
             beanFactory = context.getAutowireCapableBeanFactory();
         }
-
         @Override
         protected Object createJobInstance(final TriggerFiredBundle bundle) throws Exception {
             final Object job = super.createJobInstance(bundle);

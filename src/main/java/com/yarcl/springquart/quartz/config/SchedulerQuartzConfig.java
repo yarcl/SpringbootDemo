@@ -22,7 +22,7 @@ public class SchedulerQuartzConfig {
     private SchedulerQuartzJob schedulerQuartzJob;
 
     @Autowired
-    private DruidDataSource dataSourceBean;
+    private DruidDataSource oracleDataSource;
 
     @Bean(name = "schedulerFactoryBean")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
@@ -35,7 +35,7 @@ public class SchedulerQuartzConfig {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         Properties pro = propertiesFactoryBean.getObject();
         factory.setOverwriteExistingJobs(true);
-        factory.setDataSource(dataSourceBean);
+        factory.setDataSource(oracleDataSource);
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);

@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by xiaozhi on 2019/6/19.
  */
 public class SystemConstantImpl {
-    private static SystemConstantImpl systemConstant;
+    private static SystemConstantImpl systemConstantImpl;
     private static Map<String, Map<String, Object>> systemConstMap = new HashMap<>();
 
     private SystemConstantImpl() {
@@ -23,10 +23,10 @@ public class SystemConstantImpl {
      */
     public static SystemConstantImpl initObject() {
         // 创建对象
-        if(ObjectUtils.isEmpty(systemConstant)) {
-            systemConstant = new SystemConstantImpl();
+        if(ObjectUtils.isEmpty(systemConstantImpl)) {
+            systemConstantImpl = new SystemConstantImpl();
         }
-        return systemConstant;
+        return systemConstantImpl;
     }
 
     /**
@@ -36,8 +36,8 @@ public class SystemConstantImpl {
      */
     public static SystemConstantImpl initObject(Map<String, String> initValue) {
         // 创建对象
-        if(ObjectUtils.isEmpty(systemConstant)) {
-            systemConstant = new SystemConstantImpl();
+        if(ObjectUtils.isEmpty(systemConstantImpl)) {
+            systemConstantImpl = new SystemConstantImpl();
         }
         // 初始化数据
         initValue.entrySet().stream().forEach(item -> {
@@ -45,12 +45,12 @@ public class SystemConstantImpl {
             String strValue = item.getValue();
             try {
                 // 插入数据
-                systemConstant.initializedObjValue(objId, strValue);
+                systemConstantImpl.initializedObjValue(objId, strValue);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
-        return systemConstant;
+        return systemConstantImpl;
     }
 
     /**
