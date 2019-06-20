@@ -1,4 +1,4 @@
-package com.yarcl.springquart.quartz;
+package com.yarcl.springquart.quartz.example;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;

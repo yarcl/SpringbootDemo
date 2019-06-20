@@ -1,7 +1,8 @@
-package com.yarcl.springquart.quartz;
+package com.yarcl.springquart.quartz.service;
 
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by xiaozhi on 2019/2/25.
@@ -11,9 +12,11 @@ public interface JobService {
 	 * 添加一个定时任务
 	 * @param jobName
 	 * @param jobGroup
+	 * @param date
+	 * @param transValue
+	 * @param clazz
 	 */
-//	void addCronJob(String jobName, String jobGroup, SchedulerDo schedulerDo);
-	void addCronJob(String jobName, String jobGroup, Date date);
+	void addCronJob(String jobName, String jobGroup, Date date, Map<String, Object> transValue, Class clazz);
 
 	/**
 	 * 添加异步任务
@@ -41,7 +44,7 @@ public interface JobService {
 	 * @param jobName
 	 * @param jobGroup
 	 */
-	void deleteJob(String jobName, String jobGroup);
+	int deleteJob(String jobName, String jobGroup);
 
 
 }

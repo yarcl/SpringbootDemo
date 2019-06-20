@@ -1,9 +1,7 @@
-package com.yarcl.springquart.quartz;
+package com.yarcl.springquart.quartz.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

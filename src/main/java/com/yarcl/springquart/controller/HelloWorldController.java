@@ -1,16 +1,15 @@
 package com.yarcl.springquart.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yarcl.springquart.quartz.JobService;
-import org.apache.ibatis.annotations.Param;
+import com.yarcl.springquart.quartz.example.CronJob;
+import com.yarcl.springquart.quartz.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/hello")
@@ -43,7 +42,7 @@ public class HelloWorldController {
         Long longTime = d.getTime()+10000;
         d = new Date(longTime);
         // response.sendRedirect("/login");
-        jobService.addCronJob("hello11", "thisGroup", d);
+        jobService.addCronJob("hello11", "thisGroup", d, new HashMap<>(), CronJob.class);
         return "/login";
     }
 }

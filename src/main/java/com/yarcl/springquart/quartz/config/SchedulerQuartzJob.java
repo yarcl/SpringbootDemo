@@ -1,4 +1,4 @@
-package com.yarcl.springquart.quartz;
+package com.yarcl.springquart.quartz.config;
 
 import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
