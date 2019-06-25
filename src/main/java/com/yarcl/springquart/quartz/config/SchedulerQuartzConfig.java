@@ -2,6 +2,7 @@ package com.yarcl.springquart.quartz.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,11 +19,14 @@ import java.util.Properties;
 @Configuration
 public class SchedulerQuartzConfig {
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SchedulerQuartzJob schedulerQuartzJob;
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
-    private DruidDataSource oracleDataSource;
+    @Qualifier("mysqlDataSource")
+    private DruidDataSource dataSourceBean;
 
     @Bean(name = "schedulerFactoryBean")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
@@ -35,7 +39,7 @@ public class SchedulerQuartzConfig {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         Properties pro = propertiesFactoryBean.getObject();
         factory.setOverwriteExistingJobs(true);
-        factory.setDataSource(oracleDataSource);
+        factory.setDataSource(dataSourceBean);
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);

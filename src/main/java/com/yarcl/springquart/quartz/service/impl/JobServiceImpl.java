@@ -39,6 +39,7 @@ public class JobServiceImpl implements JobService {
      */
     @Override
     public void addCronJob(String jobName, String jobGroup, Date date, Map<String, Object> transValue, Class clazz) {
+        System.out.println("innerDev===========");
         if (ObjectUtils.isEmpty(date)) {
             throw new UnknownFormatConversionException(
                     (String) systemConstant.fetchAttrValue(QuartzConstant.class.getSimpleName(),
