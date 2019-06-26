@@ -1,6 +1,4 @@
-package com.yarcl.springquart.vbean;
-
-import com.alibaba.fastjson.JSONObject;
+package com.yarcl.springquart.beanView;
 
 public class Response {
 

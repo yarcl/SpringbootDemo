@@ -1,6 +1,6 @@
 package com.yarcl.springquart.controller;
 
-import com.yarcl.springquart.interceptor.enumAnno.IPass;
+import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.quartz.example.CronJob;
 import com.yarcl.springquart.quartz.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;

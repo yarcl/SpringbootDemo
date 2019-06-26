@@ -1,4 +1,4 @@
-package com.yarcl.springquart.interceptor.enumAnno;
+package com.yarcl.springquart.interceptor.interceptAnno;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

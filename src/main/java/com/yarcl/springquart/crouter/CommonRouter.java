@@ -1,8 +1,6 @@
-package com.yarcl.springquart.router;
+package com.yarcl.springquart.crouter;
 
-import com.yarcl.springquart.interceptor.enumAnno.IPass;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 

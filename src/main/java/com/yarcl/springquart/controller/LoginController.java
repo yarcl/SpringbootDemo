@@ -4,14 +4,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.yarcl.springquart.bean.RazorUser;
 import com.yarcl.springquart.bean.UserBean;
 import com.yarcl.springquart.constant.SystemConstant;
-import com.yarcl.springquart.constant.SystemStatus;
-import com.yarcl.springquart.interceptor.enumAnno.IPass;
+import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.service.UserService;
-import com.yarcl.springquart.vbean.Response;
+import com.yarcl.springquart.beanView.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 

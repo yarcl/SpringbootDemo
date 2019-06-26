@@ -1,6 +1,6 @@
-package com.yarcl.springquart.interceptor.config;
+package com.yarcl.springquart.interceptor.impl;
 
-import com.yarcl.springquart.interceptor.enumAnno.IPass;
+import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
