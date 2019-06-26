@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yarcl.springquart.dao.mysql.UserMapper">
+
+  <select id="findUserInfo" resultType="com.yarcl.springquart.bean.UserBean">
+    select id,  name as username, age,password from razor_user
+  </select>
+
+  <sql id="allColumn">
+    user_id, login_name, login_pwd, name, role_id, is_active
+  </sql>
+
+  <resultMap id="rm" type="com.yarcl.springquart.bean.RazorUser">
+    <id property="userId" column="user_id"/>
+    <result property="loginName" column="login_name"></result>
+    <result property="loginPwd" column="login_pwd"></result>
+    <result property="name" column="name"></result>
+    <result property="roleId" column="role_id"></result>
+    <result property="isActive" column="is_active"></result>
+  </resultMap>
+
+  <select id="login"
+          resultMap="rm">
+    select
+    <include refid="allColumn"/>
+    from RAZOR_USER where login_name = #{param1} and
+    login_pwd = #{param2}
+  </select>
+
+  <update id="updateUser" parameterType="com.yarcl.springquart.bean.RazorUser">
+
+    update RAZOR_USER set login_name = #{loginName, jdbcType=VARCHAR},name = #{name},
+    role_id = #{roleId}, is_active = #{isActive} where user_id = #{userId}
+
+  </update>
+
+  <select id="getUserById" resultMap="rm">
+    select
+    <include refid="allColumn"/>
+    from RAZOR_USER where user_id = #{userId}
+  </select>
+
+  <update id="updatePassword">
+
+    update RAZOR_USER set login_pwd = #{param2, jdbcType=VARCHAR}
+    where user_id = #{param1}
+
+  </update>
+
+  <select id="getAllUsersInfo" resultMap="rm">
+
+    select
+    <include refid="allColumn"/>
+    from
+    RAZOR_USER
+    limit #{param1}, #{param2}
+
+  </select>
+
+  <select id="getUserCount" resultType="int">
+
+    select count(1) from RAZOR_USER
+
+  </select>
+</mapper>

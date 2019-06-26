@@ -7,7 +7,9 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import org.springframework.context.annotation.Bean;
@@ -28,10 +30,28 @@ import java.sql.SQLException;
 @MapperScan(basePackages = {"com.yarcl.springquart.dao.mysql", "com.yarcl.springquart.dao"}, sqlSessionTemplateRef ="mysqlSessionTemplate")
 public class MysqlConfig {
 
-    private static PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration(true);
+    // 构造单例对象
+    private static PropertiesConfiguration propertiesConfiguration = PropertiesConfiguration.getSingleInstance(true);
+
+    /*@Value("${spring.datasource.mysql.url}")
+    private String mysqlUrl;
+
+    @Value("${spring.datasource.mysql.username}")
+    private String mysqlUsername;
+
+    @Value("${spring.datasource.mysql.password}")
+    private String mysqlPassword;
+
+    @Value("${spring.datasource.mysql.driverClassName}")
+    private String mysqlDriverClassName;
+
+    @Value("${spring.datasource.mysql.filters}")
+    private String mysqlFilters;
+
+    @Value("${spring.datasource.mysql.principalSessionName}")
+    private String mysqlPrincipalSessionName;*/
 
     @Bean("mysqlDataSource")
-    // @Primary
     public static DruidDataSource dataSource1() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertiesConfiguration.getMysqlUrl());
@@ -43,20 +63,17 @@ public class MysqlConfig {
         dataSource.setLogAbandoned(true);
         dataSource.setRemoveAbandonedTimeout(180);
         dataSource.setBreakAfterAcquireFailure(true);
-        System.out.print("initialize dataSource1====================");
         return dataSource;
     }
 
     // 事物管理器
     @Bean
-    // @Primary
     public static PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource1());
     }
 
     //提供SqlSeesion
     @Bean
-    // @Primary
     public static SqlSessionFactory mysqlSqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource1());
@@ -67,7 +84,6 @@ public class MysqlConfig {
 
     //提供SqlSeesion
     @Bean(name = "mysqlSessionTemplate")
-    // @Primary
     public static SqlSessionTemplate mysqlSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(mysqlSqlSessionFactoryBean());
     }

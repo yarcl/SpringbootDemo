@@ -1,5 +1,6 @@
 package com.yarcl.springquart.router;
 
+import com.yarcl.springquart.interceptor.enumAnno.IPass;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.io.IOException;
 public class CommonRouter {
 
     // 路由到登录页面
+    @IPass
     @GetMapping(value={"/", "login"}, produces = {"application/json;charset=utf-8"})
     public ModelAndView routToLogin() throws IOException {
         ModelAndView  mav = new ModelAndView();

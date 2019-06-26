@@ -5,6 +5,9 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobKey;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.sql.DataSource;
 
 /**
  * Created by xiaozhi on 2019/2/25.
@@ -14,8 +17,13 @@ public class CronJob implements Job {
     @Autowired
     private JobService jobService;
 
+    @Autowired
+    @Qualifier("oracleDataSource")
+    private DataSource dataSource;
+
     @Override
     public void execute(JobExecutionContext jobExecutionContext) {
+
         // 获取job的名称和group
         String jobName = jobExecutionContext.getJobDetail().getKey().getName();
         String jobGroup = jobExecutionContext.getJobDetail().getKey().getGroup();

@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import org.springframework.context.annotation.Bean;
@@ -30,7 +31,26 @@ import java.sql.SQLException;
 @EnableAutoConfiguration
 @MapperScan(basePackages = {"com.yarcl.springquart.dao.oracle"},  sqlSessionTemplateRef="oracleSessionTemplate")
 public class OracleConfig {
-    private static PropertiesConfiguration propertiesConfiguration = new PropertiesConfiguration(true);
+    // 构造单例对象
+    private static PropertiesConfiguration propertiesConfiguration = PropertiesConfiguration.getSingleInstance(true);
+
+    /*@Value("${spring.datasource.oracle.url}")
+    private String oracleUrl;
+
+    @Value("${spring.datasource.oracle.username}")
+    private String oracleUsername;
+
+    @Value("${spring.datasource.oracle.password}")
+    private String oraclePassword;
+
+    @Value("${spring.datasource.oracle.driverClassName}")
+    private String oracleDriverClassName;
+
+    @Value("${spring.datasource.oracle.filters}")
+    private String oracleFilters;
+
+    @Value("${spring.datasource.oracle.principalSessionName}")
+    private String oraclePrincipalSessionName;*/
 
     @Bean("oracleDataSource")
     @Primary
@@ -40,29 +60,25 @@ public class OracleConfig {
         dataSource.setUsername(propertiesConfiguration.getOracleUsername());
         dataSource.setPassword(propertiesConfiguration.getOraclePassword());
         dataSource.setDriverClassName(propertiesConfiguration.getOracleDriverClassName());
-        dataSource.setFilters(propertiesConfiguration.getMysqlFilters());
-        System.out.println("initialize dataSource2=====================");
+        dataSource.setFilters(propertiesConfiguration.getOracleFilters());
         return dataSource;
     }
     // 事物管理器
-    @Primary
     @Bean(name = "oracleTransManager")
     public static PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource2());
     }
-    //提供SqlSeesion
+    //提供SqlSeesionFactory
     @Bean(name = "oracleSessionFactory")
-    @Primary
     public static SqlSessionFactory oracleSqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource2());
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/mapper/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/mapper/oracle/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
-    //提供SqlSeesion
+    //提供SqlSeesionTemplate
     @Bean(name = "oracleSessionTemplate")
-    @Primary
     public static SqlSessionTemplate mysqlSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(oracleSqlSessionFactoryBean());
     }

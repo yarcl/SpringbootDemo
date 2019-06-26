@@ -5,11 +5,13 @@ import com.yarcl.springquart.bean.RazorUser;
 import com.yarcl.springquart.bean.UserBean;
 import com.yarcl.springquart.constant.SystemConstant;
 import com.yarcl.springquart.constant.SystemStatus;
+import com.yarcl.springquart.interceptor.enumAnno.IPass;
 import com.yarcl.springquart.service.UserService;
 import com.yarcl.springquart.vbean.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,9 +31,8 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    /*@Value("${spring.datasource.mysql.url}")
-    private String url;*/
     // 访问登录页面1
+    @IPass
     @PostMapping(value="/login1.do", produces = {"application/json;charset=utf-8"})
     public Object routeToWelcome(String username, String password, HttpServletRequest request) throws IOException {
         JSONObject obj = new JSONObject();
@@ -49,6 +50,7 @@ public class LoginController {
     }
 
     // 访问登录页面2
+    @IPass
     @ResponseBody
     @PostMapping(value = "login.do")
     public Response login(@RequestParam("username") String username, @RequestParam("password") String password){

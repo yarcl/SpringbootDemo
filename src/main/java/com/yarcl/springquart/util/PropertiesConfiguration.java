@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -17,6 +18,9 @@ import java.util.Properties;
 public class PropertiesConfiguration {
 
     private Logger logger = LogManager.getLogger(PropertiesConfiguration.class);
+
+    private static PropertiesConfiguration propertiesConfiguration = null;
+
     //注意不能使用static静态变量，默认不支持
     private String mysqlUrl;
     private String mysqlUsername;
@@ -76,11 +80,11 @@ public class PropertiesConfiguration {
         return oraclePrincipalSessionName;
     }
 
-    public PropertiesConfiguration() {
-    }
-
-
-    public PropertiesConfiguration(boolean flag){
+    /**
+     * 私有构造方法
+     * @param flag Nothing to use
+     */
+    private PropertiesConfiguration(boolean flag){
         try{
             InputStream inputStream =
                     PropertiesConfiguration.class.getClassLoader().getResourceAsStream("application.properties");
@@ -102,5 +106,16 @@ public class PropertiesConfiguration {
         } catch (Exception e){
             logger.error(e);
         }
+    }
+
+    /**
+     * 公有方法获取单例对象
+     * @return
+     */
+    public static PropertiesConfiguration getSingleInstance(Boolean flag) {
+        if(Objects.isNull(propertiesConfiguration)) {
+            propertiesConfiguration = new PropertiesConfiguration(flag);
+        }
+        return propertiesConfiguration;
     }
 }
