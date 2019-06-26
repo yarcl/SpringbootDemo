@@ -1,5 +1,6 @@
 package com.yarcl.springquart.controller;
 
+import com.yarcl.springquart.interceptor.enumAnno.IPass;
 import com.yarcl.springquart.quartz.example.CronJob;
 import com.yarcl.springquart.quartz.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class SchedulerController {
     private JobService jobService;
 
     @GetMapping("/startScheduler")
+    @IPass
     public String startScheduler() {
         Long dateTime = new Date().getTime();
         Date date = new Date(dateTime+10000);

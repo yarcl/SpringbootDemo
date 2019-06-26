@@ -23,10 +23,10 @@ public class SchedulerQuartzConfig {
     @Autowired
     private SchedulerQuartzJob schedulerQuartzJob;
 
+    // Qualifier注入的为Bean的名字
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     @Qualifier("mysqlDataSource")
-    // Qualifier注入的为Bean的名字
     private DruidDataSource dataSourceBean;
 
     @Bean(name = "schedulerFactoryBean")
