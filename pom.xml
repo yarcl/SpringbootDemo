@@ -47,7 +47,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.1.41</version>
+			<version>1.2.31</version>
 		</dependency>
 		<!-- 前端模板页面的支持 -->
 		<dependency>

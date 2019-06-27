@@ -1,6 +1,9 @@
 package com.yarcl.springquart.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yarcl.springquart.bean.RazorUser;
+import com.yarcl.springquart.beanView.Response;
+import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.quartz.example.CronJob;
 import com.yarcl.springquart.quartz.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +27,11 @@ public class HelloWorldController {
     }
 
     @GetMapping("/{userId}")
-    public @ResponseBody Object getAllTest(@PathVariable("userId") String userId, @RequestParam("name") String name, ModelMap map) {
-        JSONObject obj = new JSONObject();
-        obj.put("user", new String("Hello World:" + userId));
-        return obj;
+    @IPass
+    public @ResponseBody Response getAllTest(@PathVariable("userId") String userId, @RequestParam("name") String name, ModelMap map) {
+        RazorUser user = new RazorUser();
+        user.setName("Hello World:" + userId);
+        return Response.success(user);
     }
 
     @GetMapping(value={"/","/login"})
@@ -42,7 +46,7 @@ public class HelloWorldController {
         Long longTime = d.getTime()+10000;
         d = new Date(longTime);
         // response.sendRedirect("/login");
-        jobService.addCronJob("hello11", "thisGroup", d, new HashMap<>(), CronJob.class);
+        jobService.addCronJob("hello11", "thisGroup", d, new HashMap<String, Object>(), CronJob.class);
         return "/login";
     }
 }

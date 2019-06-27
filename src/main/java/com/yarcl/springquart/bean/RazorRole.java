@@ -1,5 +1,8 @@
 package com.yarcl.springquart.bean;
 
+import lombok.Data;
+
+@Data
 public class RazorRole {
     private int roleId;
     private String roleName;
@@ -16,35 +19,4 @@ public class RazorRole {
         this.isDelete = isDelete;
     }
 
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public String getIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(String isActive) {
-        this.isActive = isActive;
-    }
-
-    public String getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(String isDelete) {
-        this.isDelete = isDelete;
-    }
 }

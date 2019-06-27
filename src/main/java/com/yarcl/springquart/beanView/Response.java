@@ -1,51 +1,43 @@
 package com.yarcl.springquart.beanView;
 
-public class Response {
+import lombok.Data;
 
-    private Object content;
+@Data
+public class Response<T, R> {
 
-    private int flag;
+    /**
+     *
+     */
+    private T content;
 
-    public Object getContent() {
-        return content;
-    }
+    private Object message;
 
-    public void setContent(Object content) {
-        this.content = content;
-    }
-
-    public int getFlag() {
-        return flag;
-    }
-
-    public void setFlag(int flag) {
-        this.flag = flag;
-    }
+    private Boolean success;
 
     public static Response error(){
         Response response = new Response();
-        response.setFlag(0);
+        response.setSuccess(false);
         response.setContent(null);
         return response;
     }
 
-    public static Response error(Object content){
+    public static <T> Response error(T content){
         Response response = new Response();
-        response.setFlag(0);
-        response.setContent(null);
+        response.setSuccess(false);
+        response.setContent(content);
         return response;
     }
 
     public static Response success(){
         Response response = new Response();
-        response.setFlag(1);
+        response.setSuccess(true);
         response.setContent(null);
         return response;
     }
 
-    public static Response success(Object content){
+    public static <T> Response success(T content){
         Response response = new Response();
-        response.setFlag(1);
+        response.setSuccess(true);
         response.setContent(content);
         return response;
     }

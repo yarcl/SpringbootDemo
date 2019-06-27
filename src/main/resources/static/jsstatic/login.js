@@ -15,7 +15,6 @@
                 success: function(data){
                     var content = data.content;
                     var userStr = JSON.stringify(content);
-                    console.log(userStr);
                     windows.$main = content;
                     var flag =  data.flag;
                     if(flag){
@@ -39,3 +38,5 @@ var app = new Vue({
         message: 'Hello Vue!'
     }
 });
+
+app.message = 'hello yarcl!'

@@ -1,5 +1,8 @@
 package com.yarcl.springquart.bean;
 
+import lombok.Data;
+
+@Data
 public class PageBean {
 	private int nowPage;
 	private int pageSize;
@@ -19,24 +22,7 @@ public class PageBean {
 		this.totalPage = totalPage;
 		this.count = count;
 	}
-	public int getNowPage() {
-		return nowPage;
-	}
-	public void setNowPage(int nowPage) {
-		this.nowPage = nowPage;
-	}
-	public int getPageSize() {
-		return pageSize;
-	}
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-	public int getTotalPage() {
-		return totalPage;
-	}
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
+
 	public int getCount() {
 		return count;
 	}

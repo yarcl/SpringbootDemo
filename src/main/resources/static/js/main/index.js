@@ -4,9 +4,9 @@ window.onload = function() {
     $("#index-name").html(JSON.parse(user).name);
 }
 
-var app = new vue({
+var index = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue!'
+        userName: 'Yarcl'
     }
 });

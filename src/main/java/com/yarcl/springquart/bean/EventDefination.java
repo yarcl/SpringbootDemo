@@ -1,5 +1,7 @@
 package com.yarcl.springquart.bean;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Date;
  * @author Anthonyxw
  * 
  */
+@Data
 public class EventDefination {
 
 	private String eventId;
@@ -29,77 +32,7 @@ public class EventDefination {
 		this.eventId = eventId;
 	}
 
-	public String getEventId() {
-		return eventId;
-	}
 
-	public void setEventId(String eventId) {
-		this.eventId = eventId;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	public String getProductId() {
-		return productId;
-	}
-
-	public void setProductId(String productId) {
-		this.productId = productId;
-	}
-
-	public String getChannelId() {
-		return channelId;
-	}
-
-	public void setChannelId(String channelId) {
-		this.channelId = channelId;
-	}
-
-	public String getEventName() {
-		return eventName;
-	}
-
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
-	}
-
-	public String getEventIdentifier() {
-		return eventIdentifier;
-	}
-
-	public void setEventIdentifier(String eventIdentifier) {
-		this.eventIdentifier = eventIdentifier;
-	}
-
-	public String getProductKey() {
-		return productKey;
-	}
-
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-	}
-
-	public int getActive() {
-		return active;
-	}
-
-	public void setActive(int active) {
-		this.active = active;
-	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public void setCreated(Date created) {
-		this.created = created;
-	}
 
 	@Override
 	public int hashCode() {

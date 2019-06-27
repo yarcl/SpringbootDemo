@@ -1,11 +1,14 @@
 package com.yarcl.springquart.bean;
 
+import lombok.Data;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2017/9/18.
  */
+@Data
 public class RazorProduct {
     private int id;
     private String name;
@@ -33,99 +36,6 @@ public class RazorProduct {
         this.productPlatform = productPlatform;
         this.category = category;
         this.active = active;
-        this.packageName = packageName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        if(date!=null){
-            return sdf.format(date);
-        } else {
-            return null;
-        }
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public int getChannelCount() {
-        return channelCount;
-    }
-
-    public void setChannelCount(int channelCount) {
-        this.channelCount = channelCount;
-    }
-
-    public String getProductKey() {
-        return productKey;
-    }
-
-    public void setProductKey(String productKey) {
-        this.productKey = productKey;
-    }
-
-    public String getProductPlatform() {
-        return productPlatform;
-    }
-
-    public void setProductPlatform(String productPlatform) {
-        this.productPlatform = productPlatform;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public int getActive() {
-        return active;
-    }
-
-    public void setActive(int active) {
-        this.active = active;
-    }
-
-    public String getPackageName() {
-        return packageName;
-    }
-
-    public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
 }
