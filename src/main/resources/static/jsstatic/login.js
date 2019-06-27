@@ -1,5 +1,4 @@
 (function(windows) {
-    console.log("nihao")
     windows.onload = function() {
         $(".form-sub").click(function(){
             $.ajax({
@@ -13,10 +12,8 @@
                 },
                 dataType:'json',
                 success: function(data){
-                    var content = data.content;
-                    var userStr = JSON.stringify(content);
-                    windows.$main = content;
-                    var flag =  data.flag;
+                    var flag = data.success;
+                    var userStr = JSON.stringify(data||data.content);
                     if(flag){
                         localStorage.setItem("user", userStr);
                         windows.location.href = "/router/main/index";
@@ -31,12 +28,3 @@
         });
     }
 })(window);
-
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!'
-    }
-});
-
-app.message = 'hello yarcl!'

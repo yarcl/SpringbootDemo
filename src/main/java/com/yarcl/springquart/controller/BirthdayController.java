@@ -1,5 +1,6 @@
 package com.yarcl.springquart.controller;
 
+import com.yarcl.springquart.beanView.Response;
 import com.yarcl.springquart.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ public class BirthdayController {
 
 
     @RequestMapping("/birthList.do")
-    public ModelAndView allProductInfo(ModelAndView mav, String userId, String nowPage){
+    public Response<ModelAndView> allProductInfo(ModelAndView mav, String userId, String nowPage){
         System.out.println("hello product!!!");
         /*if(nowPage!=null && !"".equals(nowPage)){
             pageBean.setNowPage(Integer.parseInt(nowPage));
@@ -26,7 +27,7 @@ public class BirthdayController {
         mav.addObject("page", pageBean);
         */
         mav.setViewName("/page/birthday/birthList.html");
-        return mav;
+        return Response.error(mav);
     }
 
 }

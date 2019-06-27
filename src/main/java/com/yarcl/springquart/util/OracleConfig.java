@@ -52,7 +52,7 @@ public class OracleConfig {
     @Value("${spring.datasource.oracle.principalSessionName}")
     private String oraclePrincipalSessionName;*/
 
-    @Bean("oracleDataSource")
+    // @Bean("oracleDataSource")
     @Primary
     public static DruidDataSource dataSource2() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();

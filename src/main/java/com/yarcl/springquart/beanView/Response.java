@@ -3,10 +3,10 @@ package com.yarcl.springquart.beanView;
 import lombok.Data;
 
 @Data
-public class Response<T, R> {
+public class Response<T> {
 
     /**
-     *
+     * 返回的对象内容
      */
     private T content;
 

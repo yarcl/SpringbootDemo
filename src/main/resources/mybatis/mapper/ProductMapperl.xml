@@ -3,7 +3,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 	<mapper namespace="com.yarcl.springquart.dao.ProductMapper">
-
         <resultMap id="rm" type="com.yarcl.springquart.bean.RazorProduct">
             <id property="id" column="id"/>
             <result property="name" column="name"></result>
@@ -23,8 +22,8 @@
 				select * from RAZOR_PRODUCT where user_id = #{param1} limit #{param2} , #{param3}
 		</select>
 
-    <select id="getProductCount" resultType="int">
-        select count(1) from RAZOR_PRODUCT
-    </select>
+        <select id="getProductCount" resultType="int">
+            select count(1) from RAZOR_PRODUCT
+        </select>
 		
 	</mapper>
