@@ -16,7 +16,7 @@ public class CommonRouter {
 
     // 路由到登录页面
     @IPass
-    @GetMapping(value={"/", "login"}, produces = {"application/json;charset=utf-8"})
+    @GetMapping(value={"/", "login.html"}, produces = {"application/json;charset=utf-8"})
     public ModelAndView routToLogin() throws IOException {
         ModelAndView  mav = new ModelAndView();
         mav.setViewName("login");
@@ -24,7 +24,7 @@ public class CommonRouter {
     }
 
     // main路径下登录成功路由到首页
-    @GetMapping(value="/main/{main}", produces = {"application/json;charset=utf-8"})
+    @GetMapping(value="/main/{main}.html", produces = {"application/json;charset=utf-8"})
     public ModelAndView routeToIndex(@PathVariable("main") String main) throws IOException {
         ModelAndView  mav = new ModelAndView();
         mav.setViewName("main/"+main);
@@ -48,7 +48,7 @@ public class CommonRouter {
     }*/
 
     // page目录下的路由
-    @GetMapping(value="/{path}/{pageView}", produces = {"application/json;charset=utf-8"})
+    @GetMapping(value="/{path}/{pageView}.html", produces = {"application/json;charset=utf-8"})
     public ModelAndView routePersonInfo(@PathVariable("path") String path, @PathVariable("pageView") String pageView)  {
         ModelAndView  mav = new ModelAndView();
         mav.setViewName("page/"+path+"/"+pageView);

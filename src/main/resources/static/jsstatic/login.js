@@ -16,7 +16,7 @@
                     var userStr = JSON.stringify(data||data.content);
                     if(flag){
                         localStorage.setItem("user", userStr);
-                        windows.location.href = "/router/main/index";
+                        windows.location.href = "/router/main/index.html";
                     } else {
                         alert("用户名或者密码错误!")
                     }
