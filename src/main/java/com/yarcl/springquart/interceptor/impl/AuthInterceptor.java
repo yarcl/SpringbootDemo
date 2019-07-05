@@ -18,6 +18,4 @@ public class AuthInterceptor implements HandlerInterceptor {
         IPass methodAnnotation = handlerMethod.getMethodAnnotation(IPass.class);
         return methodAnnotation != null && methodAnnotation.value().equals(IPass.Auth.PASS);
     }
-
-
 }
