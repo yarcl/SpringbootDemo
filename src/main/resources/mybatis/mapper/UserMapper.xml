@@ -3,14 +3,14 @@
 <mapper namespace="com.yarcl.springquart.dao.mysql.UserMapper">
 
   <select id="findUserInfo" resultType="com.yarcl.springquart.bean.UserBean">
-    select id,  name as username, age,password from razor_user
+    select id,  name as username, age,password from sys_user
   </select>
 
   <sql id="allColumn">
     user_id, login_name, login_pwd, name, role_id, is_active
   </sql>
 
-  <resultMap id="rm" type="com.yarcl.springquart.bean.RazorUser">
+  <resultMap id="rm" type="com.yarcl.springquart.bean.SysUser">
     <id property="userId" column="user_id"/>
     <result property="loginName" column="login_name"></result>
     <result property="loginPwd" column="login_pwd"></result>
@@ -23,13 +23,13 @@
           resultMap="rm">
     select
     <include refid="allColumn"/>
-    from RAZOR_USER where login_name = #{param1} and
+    from SYS_USER where login_name = #{param1} and
     login_pwd = #{param2}
   </select>
 
-  <update id="updateUser" parameterType="com.yarcl.springquart.bean.RazorUser">
+  <update id="updateUser" parameterType="com.yarcl.springquart.bean.SysUser">
 
-    update RAZOR_USER set login_name = #{loginName, jdbcType=VARCHAR},name = #{name},
+    update SYS_USER set login_name = #{loginName, jdbcType=VARCHAR},name = #{name},
     role_id = #{roleId}, is_active = #{isActive} where user_id = #{userId}
 
   </update>
@@ -37,12 +37,12 @@
   <select id="getUserById" resultMap="rm">
     select
     <include refid="allColumn"/>
-    from RAZOR_USER where user_id = #{userId}
+    from SYS_USER where user_id = #{userId}
   </select>
 
   <update id="updatePassword">
 
-    update RAZOR_USER set login_pwd = #{param2, jdbcType=VARCHAR}
+    update SYS_USER set login_pwd = #{param2, jdbcType=VARCHAR}
     where user_id = #{param1}
 
   </update>
@@ -52,14 +52,14 @@
     select
     <include refid="allColumn"/>
     from
-    RAZOR_USER
+    SYS_USER
     limit #{param1}, #{param2}
 
   </select>
 
   <select id="getUserCount" resultType="int">
 
-    select count(1) from RAZOR_USER
+    select count(1) from SYS_USER
 
   </select>
 </mapper>

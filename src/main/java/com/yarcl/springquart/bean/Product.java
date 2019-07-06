@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Administrator on 2017/9/18.
  */
 @Data
-public class RazorProduct {
+public class Product {
     private int id;
     private String name;
     private String description;
@@ -22,10 +22,10 @@ public class RazorProduct {
     private int active;
     private String packageName;
 
-    public RazorProduct() {
+    public Product() {
     }
 
-    public RazorProduct(int id, String name, String description, Date date, String userId, int channelCount, String productKey, String productPlatform, String category, int active, String packageName) {
+    public Product(int id, String name, String description, Date date, String userId, int channelCount, String productKey, String productPlatform, String category, int active, String packageName) {
         this.id = id;
         this.name = name;
         this.description = description;

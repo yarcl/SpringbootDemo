@@ -1,6 +1,6 @@
 package com.yarcl.springquart.controller;
 
-import com.yarcl.springquart.bean.RazorUser;
+import com.yarcl.springquart.bean.SysUser;
 import com.yarcl.springquart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/user")
 public class UserController {
 
-
     @Autowired
     private UserService userService;
 
     @PostMapping(value = "/editPersonInfo.do")
-    public ModelAndView editUserInfo(RazorUser user, ModelAndView mav){
+    public ModelAndView editUserInfo(SysUser user, ModelAndView mav){
 
         if(user!=null){
             int result = userService.updateUser(user);

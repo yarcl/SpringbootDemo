@@ -1,7 +1,7 @@
 package com.yarcl.springquart.service.impl;
 
 import com.yarcl.springquart.bean.PageBean;
-import com.yarcl.springquart.bean.RazorProduct;
+import com.yarcl.springquart.bean.Product;
 import com.yarcl.springquart.dao.ProductMapper;
 import com.yarcl.springquart.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class ProductServiceImpl implements ProductService{
         return productMapper.getProductCount();
     }
 
-    /*public List<RazorProduct> getProductByUserId(String userId, PageBean pageBean) {
+    /*public List<Product> getProductByUserId(String userId, PageBean pageBean) {
         return productMapper.getProductByUserId(userId, CaculatePage.caculateStart(pageBean), CaculatePage.caculateEnd(pageBean));
     }*/
 
     @Override
-    public List<RazorProduct> getRazorProductByUserId(String userId, PageBean pageBean) {
+    public List<Product> getProductByUserId(String userId, PageBean pageBean) {
         return null;
     }
 }

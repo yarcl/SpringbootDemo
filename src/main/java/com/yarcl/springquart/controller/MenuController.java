@@ -20,7 +20,7 @@ public class MenuController {
         /*if(nowPage!=null && !"".equals(nowPage)){
             pageBean.setNowPage(Integer.parseInt(nowPage));
         }
-        List<RazorMenu> menuList = menuService.allMenuInfo(pageBean);
+        List<SysMenu> menuList = menuService.allMenuInfo(pageBean);
         pageBean.setCount(menuService.getMenuCount());
         mav.addObject("page", pageBean);
         mav.addObject("menuList", menuList);

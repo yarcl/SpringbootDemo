@@ -18,7 +18,7 @@ public class RoleController {
         /*if(nowPage!=null && !"".equals(nowPage)){
             pageBean.setNowPage(Integer.parseInt(nowPage));
         }
-        List<RazorRole> roleList = roleService.allRoleInfo(pageBean);
+        List<SysRole> roleList = roleService.allRoleInfo(pageBean);
         pageBean.setCount(roleService.getRoleCount());
         mav.addObject("page", pageBean);
         mav.addObject("roleList", roleList);

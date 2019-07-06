@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface RoleService {
 
-    // public List<RazorRole> allRoleInfo(PageBean pageBean);
+    // public List<SysRole> allRoleInfo(PageBean pageBean);
 
     public int getRoleCount();
 }

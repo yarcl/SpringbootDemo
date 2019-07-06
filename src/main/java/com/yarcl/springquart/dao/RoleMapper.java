@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 
 @MapperScan
 public interface RoleMapper {
-    // public List<RazorRole> allRoleInfo(int startPage, int endPage);
+    // public List<SysRole> allRoleInfo(int startPage, int endPage);
 
     public int getRoleCount();
 }

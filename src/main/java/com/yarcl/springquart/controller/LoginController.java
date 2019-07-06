@@ -1,25 +1,27 @@
 package com.yarcl.springquart.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.yarcl.springquart.bean.RazorUser;
+import com.yarcl.springquart.bean.SysSession;
+import com.yarcl.springquart.bean.SysUser;
 import com.yarcl.springquart.bean.UserBean;
 import com.yarcl.springquart.constant.SystemConstant;
 import com.yarcl.springquart.interceptor.interceptAnno.IPass;
+import com.yarcl.springquart.service.SessionManageService;
 import com.yarcl.springquart.service.UserService;
 import com.yarcl.springquart.beanView.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
- * Created by Administrator on 2018/1/10.
+ * Created by yarcl on 2018/1/10.
  */
 @RestController
 @RequestMapping("/user")
@@ -29,8 +31,11 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private SessionManageService sessionManageService;
+
     // 访问登录页面1
-    @IPass
+    /*@IPass
     @PostMapping(value="/login1.do", produces = {"application/json;charset=utf-8"})
     public Object routeToWelcome(String username, String password, HttpServletRequest request) throws IOException {
         JSONObject obj = new JSONObject();
@@ -45,20 +50,26 @@ public class LoginController {
             logger.error(e);
         }
         return obj;
-    }
+    }*/
 
     // 访问登录页面2
     @IPass
     @ResponseBody
     @PostMapping(value = "login.do")
-    public Response login(@RequestParam("username") String username, @RequestParam("password") String password){
-        RazorUser user = userService.login(username,password);
-        if(user!=null){
+    public Response login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request){
+        SysUser user = userService.login(username,password);
+
+        if(!Objects.isNull(user)){
+            // sessioin控制
+            Boolean loginFlag = this.saveOrUpdateSession(request, user);
+            if(!loginFlag) return Response.error("登录失败!");
+
+            // 密码清空
             logger.info(SystemConstant.LONGIN_SUCCESS, user.getName());
             user.setLoginPwd("");
         } else {
             logger.error(SystemConstant.LONGIN_FAILED, username);
-            return Response.error();
+            return Response.error("用户不存在!");
         }
         return Response.success(user);
     }
@@ -73,5 +84,25 @@ public class LoginController {
         }
         mav.setViewName("/login");
         return mav;
+    }
+
+    // session Control
+    private Boolean saveOrUpdateSession(HttpServletRequest request, SysUser user) {
+        HttpSession session = Optional.ofNullable(request.getSession()).orElse(null);
+
+        if(!Objects.isNull(session)) {
+            SysSession sysSession = new SysSession();
+            StringBuffer ipAddress = request.getRequestURL();
+
+            sysSession.setSessionId(session.getId());
+            sysSession.setIpAddress(ipAddress.toString());
+            sysSession.setUserId(user.getUserId());
+            sysSession.setUserName(user.getName());
+            SysSession resultSession = sessionManageService.getSysSessionById(session.getId());
+            int sum = resultSession != null ? 100 : sessionManageService.saveSessionInfo(sysSession);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

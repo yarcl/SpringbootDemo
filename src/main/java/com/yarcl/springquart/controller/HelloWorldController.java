@@ -1,7 +1,6 @@
 package com.yarcl.springquart.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.yarcl.springquart.bean.RazorUser;
+import com.yarcl.springquart.bean.SysUser;
 import com.yarcl.springquart.beanView.Response;
 import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.quartz.example.CronJob;
@@ -27,9 +26,8 @@ public class HelloWorldController {
     }
 
     @GetMapping("/{userId}")
-    @IPass
     public @ResponseBody Response getAllTest(@PathVariable("userId") String userId, @RequestParam("name") String name, ModelMap map) {
-        RazorUser user = new RazorUser();
+        SysUser user = new SysUser();
         user.setName("Hello World:" + userId);
         return Response.success(user);
     }

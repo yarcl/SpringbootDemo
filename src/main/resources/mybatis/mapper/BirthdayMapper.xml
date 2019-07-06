@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="com.yarcl.springquart.dao.BirthdayMapper">
+
+        <sql id="allColumn">
+            id, name, birth_type, birth_dt, create_dt, birth_counts
+        </sql>
+
+        <resultMap id="rm" type="com.yarcl.springquart.bean.Birthday">
+            <id property="id" column="id"/>
+            <result property="name" column="name"></result>
+            <result property="birthType" column="birth_type"></result>
+            <result property="birthDt" column="birth_dt"></result>
+            <result property="createDt" column="create_dt"></result>
+            <result property="birthCounts" column="birth_counts"></result>
+        </resultMap>
+
+        <select id="getAllBirthdayInfo" resultMap="rm">
+            select
+              <include refid="allColumn"/>
+            from
+              birthday
+        </select>
+		
+	</mapper>

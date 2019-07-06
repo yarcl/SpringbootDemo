@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="com.yarcl.springquart.dao.SessionMapper">
+
+        <sql id="allColumn">
+            id, session_id, user_name, user_id, ip_address
+        </sql>
+
+        <sql id="insertColumn">
+            session_id, user_id, user_name, ip_address
+        </sql>
+
+            <resultMap id="rm" type="com.yarcl.springquart.bean.SysSession">
+                <id property="id" column="id"/>
+                <result property="sessionId" column="session_id"></result>
+                <result property="userId" column="user_id"></result>
+                <result property="userName" column="user_name"></result>
+                <result property="ipAddress" column="ip_address"></result>
+            </resultMap>
+
+            <insert id="saveSession" parameterType="com.yarcl.springquart.bean.SysSession">
+                insert into sys_session(
+                <include refid="insertColumn" />
+                ) values (#{sessionId}, #{userId}, #{userName}, #{ipAddress});
+            </insert>
+
+            <select id="getSysSessionById" resultMap="rm">
+                select * from sys_session where session_id = #{param1}
+            </select>
+	</mapper>

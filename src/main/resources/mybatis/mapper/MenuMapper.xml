@@ -8,7 +8,7 @@
             menu_id, menu_name, menu_url, is_active, is_delete, parent_id
         </sql>
 
-            <resultMap id="rm" type="com.yarcl.springquart.bean.RazorMenu">
+            <resultMap id="rm" type="com.yarcl.springquart.bean.SysMenu">
                 <id property="menuId" column="menu_id"/>
                 <result property="menuName" column="menu_name"></result>
                 <result property="menuUrl" column="menu_url"></result>
@@ -21,13 +21,13 @@
                 select
                   <include refid="allColumn"/>
                 from
-                  RAZOR_MENU
+                  SYS_MENU
                 limit #{param1}, #{param2}
             </select>
 
             <select id="getMenuCount" resultType="int">
 
-                select count(1) from RAZOR_MENU
+                select count(1) from SYS_MENU
 
             </select>
 		

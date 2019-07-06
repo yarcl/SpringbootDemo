@@ -1,6 +1,6 @@
 package com.yarcl.springquart.service.impl;
 
-import com.yarcl.springquart.bean.RazorUser;
+import com.yarcl.springquart.bean.SysUser;
 import com.yarcl.springquart.bean.UserBean;
 import com.yarcl.springquart.dao.mysql.UserMapper;
 import com.yarcl.springquart.service.UserService;
@@ -23,19 +23,19 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUserInfo();
     }
 
-    public RazorUser login(String username, String password) {
+    public SysUser login(String username, String password) {
         return userMapper.login(username, password);
     }
 
-    /*public List<RazorUser> getAllUsersInfo(PageBean pageBean) {
+    /*public List<SysUser> getAllUsersInfo(PageBean pageBean) {
         return userMapper.getAllUsersInfo(CaculatePage.caculateStart(pageBean), CaculatePage.caculateEnd(pageBean));
     }*/
 
-    public int updateUser(RazorUser user) {
+    public int updateUser(SysUser user) {
         return userMapper.updateUser(user);
     }
 
-    public RazorUser getUserById(int id) {
+    public SysUser getUserById(int id) {
         return userMapper.getUserById(id);
     }
 

@@ -8,7 +8,7 @@
             role_id, role_name, is_active, is_delete
         </sql>
 
-            <resultMap id="rm" type="com.yarcl.springquart.bean.RazorRole">
+            <resultMap id="rm" type="com.yarcl.springquart.bean.SysRole">
                 <id property="roleId" column="role_id"/>
                 <result property="roleName" column="role_name"></result>
                 <result property="isActive" column="is_active"></result>
@@ -19,13 +19,13 @@
                 select
                   <include refid="allColumn"/>
                 from
-                  RAZOR_ROLE
+                  SYS_ROLE
                 limit #{param1}, #{param2}
             </select>
 
             <select id="getRoleCount" resultType="int">
 
-                select count(1) from RAZOR_ROLE
+                select count(1) from SYS_ROLE
 
             </select>
 	</mapper>

@@ -12,7 +12,7 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleMapper roleMapper;
 
-    /*public List<RazorRole> allRoleInfo(PageBean pageBean) {
+    /*public List<SysRole> allRoleInfo(PageBean pageBean) {
         return roleMapper.allRoleInfo(CaculatePage.caculateStart(pageBean), CaculatePage.caculateEnd(pageBean));
     }*/
 

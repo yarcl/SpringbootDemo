@@ -69,7 +69,6 @@ public class CommonRouter {
      * @param pageView
      * @return
      */
-    @IPass
     @GetMapping(value="/{path}/{pageView}.html", produces = {"application/json;charset=utf-8"})
     public ModelAndView routePagInfo(@PathVariable("path") String path, @PathVariable("pageView") String pageView)  {
         ModelAndView  mav = new ModelAndView();

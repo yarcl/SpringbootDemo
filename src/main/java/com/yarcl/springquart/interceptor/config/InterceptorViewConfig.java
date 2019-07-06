@@ -2,6 +2,7 @@ package com.yarcl.springquart.interceptor.config;
 
 import com.yarcl.springquart.interceptor.impl.AuthInterceptor;
 import com.yarcl.springquart.interceptor.impl.RouterInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -15,9 +16,15 @@ import java.util.List;
 @Configuration
 public class InterceptorViewConfig implements WebMvcConfigurer {
 
+
+    @Bean
+    public AuthInterceptor authInterceptor(){
+        return new AuthInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthInterceptor()).addPathPatterns(this.fetchAuthIncp());
+        registry.addInterceptor(authInterceptor()).addPathPatterns(this.fetchAuthIncp()).excludePathPatterns("/static/**");
         // registry.addInterceptor(new RouterInterceptor()).addPathPatterns(this.fetchAuthIncp());
     }
 
@@ -27,11 +34,10 @@ public class InterceptorViewConfig implements WebMvcConfigurer {
      */
     private List<String> fetchAuthIncp() {
         List<String> filterList = new ArrayList<>();
-        filterList.add("/");
         filterList.add("/**.do");
         filterList.add("/**.servlet");
-        filterList.add("/*");
-        filterList.add("/*/*");
+        filterList.add("/**.html");
+        filterList.add("/*/*/*");
         return filterList;
     }
 
