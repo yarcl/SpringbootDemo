@@ -10,15 +10,15 @@ import java.util.List;
 @MapperScan
 public interface UserMapper {
 
-    public SysUser login(String username, String password);
+    SysUser login(String username, String password);
 
-    public int updateUser(SysUser user);
+    int updateUser(SysUser user);
 
-    public SysUser getUserById(int id);
+    SysUser getUserById(int id);
 
-    public int updatePassword(String userId, String newPwd);
+    int updatePassword(String userId, String newPwd);
 
-    public List<SysUser> getAllUsersInfo(int startPage, int endPage);
+    List<SysUser> getAllUsersInfo(int startPage, int endPage);
 
-    public int getUserCount();
+    int getUserCount();
 }

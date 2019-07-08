@@ -4,7 +4,6 @@
             $.ajax({
                 type:'post',
                 url:'/user/login.do',
-                //contentType: 'application/json',
                 async:true,
                 data:{
                     username:$("#userName").val(),

@@ -20,4 +20,15 @@ public class BirthdayServiceImpl implements BirthdayService{
     public List<Birthday> getAllBirthdayInfo() {
         return birthdayMapper.getAllBirthdayInfo();
     }
+
+    @Override
+    public List<Birthday> queryBirthdayInfoByPage(int nowPage, int pageSize) {
+        int start = (nowPage-1) * pageSize + 1;
+        int end = nowPage * pageSize;
+        return birthdayMapper.queryBirthPage(start, end);
+    }
+
+    public int queryCount() {
+        return birthdayMapper.queryCount();
+    }
 }

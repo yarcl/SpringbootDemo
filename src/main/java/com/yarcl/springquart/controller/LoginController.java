@@ -36,7 +36,8 @@ public class LoginController {
     @IPass
     @ResponseBody
     @PostMapping(value = "login.do")
-    public Response login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request){
+    public Response login(@RequestParam("username") String username,
+                          @RequestParam("password") String password, HttpServletRequest request){
         SysUser user = userService.login(username,password);
 
         if(!Objects.isNull(user)){

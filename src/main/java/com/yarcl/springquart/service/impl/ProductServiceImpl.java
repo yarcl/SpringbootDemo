@@ -1,6 +1,6 @@
 package com.yarcl.springquart.service.impl;
 
-import com.yarcl.springquart.bean.PageBean;
+import com.yarcl.springquart.bean.util.PageBean;
 import com.yarcl.springquart.bean.Product;
 import com.yarcl.springquart.dao.ProductMapper;
 import com.yarcl.springquart.service.ProductService;

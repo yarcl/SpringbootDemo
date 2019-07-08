@@ -41,9 +41,11 @@ window.onload = function() {
     $.ajax({
         type:'post',
         url:'/birthday/birthList.do',
-        //contentType: 'application/json',
         async:true,
-        data:{},
+        data:{
+            nowPage: 1,
+            pageSize: 1
+        },
         dataType:'json',
         success: function(data){
             var flag = data.success;

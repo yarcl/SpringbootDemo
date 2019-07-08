@@ -11,4 +11,8 @@ public interface BirthdayService {
 
     List<Birthday> getAllBirthdayInfo();
 
+    List<Birthday> queryBirthdayInfoByPage(int nowPage, int pageSize);
+
+    int queryCount();
+
 }

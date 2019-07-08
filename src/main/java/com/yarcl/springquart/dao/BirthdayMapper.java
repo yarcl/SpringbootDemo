@@ -13,4 +13,7 @@ public interface BirthdayMapper {
 
     List<Birthday> getAllBirthdayInfo();
 
+    int queryCount();
+
+    List<Birthday> queryBirthPage(int nowPage, int pageSize);
 }

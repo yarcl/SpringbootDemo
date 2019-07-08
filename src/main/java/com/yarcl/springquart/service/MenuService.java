@@ -1,7 +1,7 @@
 package com.yarcl.springquart.service;
 
 
-import com.yarcl.springquart.bean.PageBean;
+import com.yarcl.springquart.bean.util.PageBean;
 import com.yarcl.springquart.bean.SysMenu;
 
 import java.util.List;

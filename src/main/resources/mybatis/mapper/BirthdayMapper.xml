@@ -23,5 +23,17 @@
             from
               birthday
         </select>
+
+        <select id="queryBirthPage" resultMap="rm">
+            select
+              <include refid="allColumn"/>
+            from
+              birthday
+            limit #{param1}, #{param2}
+        </select>
+
+        <select id="queryCount" resultType="int">
+            select count(1) from birthday
+        </select>
 		
 	</mapper>
