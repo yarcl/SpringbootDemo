@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yarcl.springquart.dao.oracle.TestUserMapper">
-
-  <select id="findUserInfo" resultType="com.yarcl.springquart.bean.UserBean">
-    select id,  name as username, age,password from user
-  </select>
-
-</mapper>

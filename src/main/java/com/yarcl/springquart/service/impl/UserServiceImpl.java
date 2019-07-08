@@ -1,7 +1,6 @@
 package com.yarcl.springquart.service.impl;
 
 import com.yarcl.springquart.bean.SysUser;
-import com.yarcl.springquart.bean.UserBean;
 import com.yarcl.springquart.dao.mysql.UserMapper;
 import com.yarcl.springquart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserMapper userMapper;
-
-    @Override
-    public List<UserBean> getAllUserInfo() {
-        return userMapper.findUserInfo();
-    }
 
     public SysUser login(String username, String password) {
         return userMapper.login(username, password);

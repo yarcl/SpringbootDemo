@@ -1,7 +1,6 @@
 package com.yarcl.springquart.dao.mysql;
 
 import com.yarcl.springquart.bean.SysUser;
-import com.yarcl.springquart.bean.UserBean;
 import org.mybatis.spring.annotation.MapperScan;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import java.util.List;
  */
 @MapperScan
 public interface UserMapper {
-    List<UserBean> findUserInfo();
 
     public SysUser login(String username, String password);
 

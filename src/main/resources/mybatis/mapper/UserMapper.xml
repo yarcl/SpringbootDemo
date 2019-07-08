@@ -2,10 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yarcl.springquart.dao.mysql.UserMapper">
 
-  <select id="findUserInfo" resultType="com.yarcl.springquart.bean.UserBean">
-    select id,  name as username, age,password from sys_user
-  </select>
-
   <sql id="allColumn">
     user_id, login_name, login_pwd, name, role_id, is_active
   </sql>

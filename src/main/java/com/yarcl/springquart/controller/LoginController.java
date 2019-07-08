@@ -2,16 +2,14 @@ package com.yarcl.springquart.controller;
 
 import com.yarcl.springquart.bean.SysSession;
 import com.yarcl.springquart.bean.SysUser;
-import com.yarcl.springquart.bean.UserBean;
+import com.yarcl.springquart.beanView.Response;
 import com.yarcl.springquart.constant.SystemConstant;
 import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.service.SessionManageService;
 import com.yarcl.springquart.service.UserService;
-import com.yarcl.springquart.beanView.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,24 +31,6 @@ public class LoginController {
 
     @Autowired
     private SessionManageService sessionManageService;
-
-    // 访问登录页面1
-    /*@IPass
-    @PostMapping(value="/login1.do", produces = {"application/json;charset=utf-8"})
-    public Object routeToWelcome(String username, String password, HttpServletRequest request) throws IOException {
-        JSONObject obj = new JSONObject();
-        try{
-            List<UserBean> users = userService.getAllUserInfo();
-            if(null !=null){
-                obj.put("flag", true);
-            } else {
-                obj.put("flag", false);
-            }
-        } catch(Exception e){
-            logger.error(e);
-        }
-        return obj;
-    }*/
 
     // 访问登录页面2
     @IPass

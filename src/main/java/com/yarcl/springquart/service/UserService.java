@@ -1,7 +1,6 @@
 package com.yarcl.springquart.service;
 
 import com.yarcl.springquart.bean.SysUser;
-import com.yarcl.springquart.bean.UserBean;
 
 import java.util.List;
 
@@ -10,8 +9,6 @@ import java.util.List;
  */
 
 public interface UserService {
-
-    List<UserBean> getAllUserInfo();
 
     public SysUser login(String username, String password);
 
