@@ -23,7 +23,7 @@ public class BirthdayServiceImpl implements BirthdayService{
 
     @Override
     public List<Birthday> queryBirthdayInfoByPage(int nowPage, int pageSize) {
-        int start = (nowPage-1) * pageSize + 1;
+        int start = (nowPage-1) * pageSize;
         int end = nowPage * pageSize;
         return birthdayMapper.queryBirthPage(start, end);
     }

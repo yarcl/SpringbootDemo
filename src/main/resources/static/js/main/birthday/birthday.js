@@ -29,7 +29,13 @@
         });
     }
 })(window);*/
+// 变量定义层次
+var BirthObj = {
+    nowPage:1,
+    pageSize:1
+};
 
+// 原生数据层次
 var birthVue = new Vue({
     el: '#birthList',
     data: {
@@ -37,21 +43,43 @@ var birthVue = new Vue({
     }
 });
 
-window.onload = function() {
+// 过调用数据层次
+/**
+ * 修改当前页
+ * @param nowPage
+ */
+function changeNowPage(nowPage) {
+    BirthObj.nowPage += nowPage;
+    callBirthData();
+}
+
+/**
+ * 修改页面条数
+ * @param pageSize
+ */
+function changePageSize(pageSize) {
+    BirthObj.pageSize = pageSize;
+}
+
+/**
+ * 调用生日数据
+ */
+function callBirthData() {
     $.ajax({
         type:'post',
         url:'/birthday/birthList.do',
         async:true,
         data:{
-            nowPage: 1,
-            pageSize: 1
+            nowPage: BirthObj.nowPage,
+            pageSize: BirthObj.pageSize
         },
         dataType:'json',
         success: function(data){
-            var flag = data.success;
-            var birthList = JSON.stringify(data?data.content:"[]");
-            if(flag){
-                birthVue.birthVueList = eval(birthList);
+            var success = data.success;
+            var birthObj = data.content.object;
+            BirthObj.totalPage = data.totalPage;
+            if(success){
+                birthVue.birthVueList = birthObj;
             } else {
                 console.log("暂无数据!")
             }
@@ -60,4 +88,10 @@ window.onload = function() {
             console.log(e);
         }
     });
+}
+
+
+// 初始数据加载层次
+window.onload = function() {
+    callBirthData()
 };
