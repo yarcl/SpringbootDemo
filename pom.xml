@@ -43,26 +43,33 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- fastjson的JSONObject -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.31</version>
-		</dependency>
 		<!-- 前端模板页面的支持 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
+		<!-- 前端模板页面的支持 -->
 
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<!-- =================0112====================== -->
@@ -82,18 +89,6 @@
 			<version>1.16.16</version>
 		</dependency>
 
-		<!--<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>9.0.2.0.0</version>
-		</dependency>-->
-
-		<!--<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3</version>
-		</dependency>-->
-
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
@@ -105,15 +100,11 @@
 			<version>3.2.8</version>
 		</dependency>
 
+		<!-- fastjson的JSONObject -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.31</version>
 		</dependency>
 
 		<dependency>
@@ -149,6 +140,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>3.2.3.RELEASE</version>
 		</dependency>
+		<!-- quartz的依赖内容 -->
 
 	</dependencies>
 
@@ -169,5 +161,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
