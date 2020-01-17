@@ -53,7 +53,7 @@ public class OracleConfig {
     private String oraclePrincipalSessionName;*/
 
     // @Bean("oracleDataSource")
-    @Primary
+    // @Primary
     public static DruidDataSource dataSource2() throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(propertiesConfiguration.getOracleUrl());
@@ -64,12 +64,12 @@ public class OracleConfig {
         return dataSource;
     }
     // 事物管理器
-    @Bean(name = "oracleTransManager")
+    // @Bean(name = "oracleTransManager")
     public static PlatformTransactionManager transactionManager() throws SQLException {
         return new DataSourceTransactionManager(dataSource2());
     }
     //提供SqlSeesionFactory
-    @Bean(name = "oracleSessionFactory")
+    // @Bean(name = "oracleSessionFactory")
     public static SqlSessionFactory oracleSqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource2());
@@ -78,7 +78,7 @@ public class OracleConfig {
         return sqlSessionFactoryBean.getObject();
     }
     //提供SqlSeesionTemplate
-    @Bean(name = "oracleSessionTemplate")
+    // @Bean(name = "oracleSessionTemplate")
     public static SqlSessionTemplate mysqlSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(oracleSqlSessionFactoryBean());
     }

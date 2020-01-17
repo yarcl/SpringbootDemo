@@ -13,15 +13,15 @@ public interface UserService {
 
     List<UserBean> getAllUserInfo();
 
-    public RazorUser login(String username, String password);
+    RazorUser login(String username, String password);
 
-    public int updateUser(RazorUser user);
+    int updateUser(RazorUser user);
 
-    public RazorUser getUserById(int id);
+    RazorUser getUserById(int id);
 
-    public int updatePassword(String userId, String newPwd);
+    int updatePassword(String userId, String newPwd);
 
     // public List<RazorUser> getAllUsersInfo(PageBean pageBean);
 
-    public int getUserCount();
+    int getUserCount();
 }

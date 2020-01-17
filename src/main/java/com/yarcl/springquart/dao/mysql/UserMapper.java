@@ -12,15 +12,15 @@ import java.util.List;
 public interface UserMapper {
     List<UserBean> findUserInfo();
 
-    public RazorUser login(String username, String password);
+    RazorUser login(String username, String password);
 
-    public int updateUser(RazorUser user);
+    int updateUser(RazorUser user);
 
-    public RazorUser getUserById(int id);
+    RazorUser getUserById(int id);
 
-    public int updatePassword(String userId, String newPwd);
+    int updatePassword(String userId, String newPwd);
 
-    public List<RazorUser> getAllUsersInfo(int startPage, int endPage);
+    List<RazorUser> getAllUsersInfo(int startPage, int endPage);
 
-    public int getUserCount();
+    int getUserCount();
 }
