@@ -1,5 +1,6 @@
 package com.yarcl.springquart.service.remind;
 
+import com.yarcl.springquart.bean.remind.RemindAddQo;
 import com.yarcl.springquart.bean.remind.RemindVo;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface RemindService {
 
     List<RemindVo> queryRemindList();
 
+    RemindVo save(RemindAddQo remindAddQo);
 }

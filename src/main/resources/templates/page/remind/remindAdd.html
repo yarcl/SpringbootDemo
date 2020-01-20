@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="/static/css/page/birthday/birthdayAdd.css" type="text/css">
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script src="/static/common/js/vue.js"></script>
+
 <div class="person-info">
     <div class="person-info-title">
         <div><h4>>>提醒新增</h4></div>
@@ -11,19 +14,18 @@
                 <th colspan="2" class="text-center">提醒新增</th>
             </tr>
             </thead>
-            <form action="/remind/addRemind.do" method="post">
                 <tr>
                     <td>主题:</td>
-                    <td><input type="text" name="remindTitle" required></td>
+                    <td><input type="text" id="remindTitle" name="remindTitle" required></td>
                 </tr>
                 <tr>
                     <td>提醒日期:</td>
-                    <td><input type="text" name="birthdayDt" required></td>
+                    <td><input type="text" id="remindDate" name="remindDate" required></td>
                 </tr>
                 <tr>
                     <td>提醒类型:</td>
                     <td>
-                        <select name="remindType" required>
+                        <select id="remindType" name="remindType" required>
                             <option value="1"> 生日</option>
                             <option value="2"> 账单</option>
                         </select>
@@ -32,9 +34,11 @@
                 <tr>
                     <td>提醒频率:</td>
                     <td>
-                        <select name="remindFre" required>
+                        <select id="remindFre" name="remindFre" required>
                             <option value="1"> 每年</option>
                             <option value="2"> 每月</option>
+                            <option value="3"> 每周</option>
+                            <option value="4"> 每日</option>
                         </select>
                     </td>
                 </tr>
@@ -42,7 +46,7 @@
                 <tr>
                     <td>推送类型:</td>
                     <td>
-                        <select name="remindType" required>
+                        <select id="pushType" name="pushType" required>
                             <option value="1"> 邮件</option>
                             <option value="2"> 短信(暂不支持)</option>
                         </select>
@@ -51,22 +55,16 @@
                 <tr>
                     <td>推送路径:</td>
                     <td>
-                        <input type="text" name="remindPath" required>
+                        <input type="text" id="remindPath" name="remindPath" required>
                     </td>
                 </tr>
-                <!--<tr>
-                    <td>是否农历:</td>
-                    <td>
-                        <input type="radio" checked name="isTradition" value="1"/> 是
-                        <input type="radio" name="isTradition" value="0"/> 否
-                    </td>
-                </tr>-->
+
                 <tr>
                     <td colspan="2">
-                        <a href="#"><button class="btn btn-primary btn-info" type="submit">保存</button></a>
+                        <a href="#"><button class="btn btn-primary btn-info remind-save" type="submit">保存</button></a>
                     </td>
                 </tr>
-            </form>
         </table>
     </div>
 </div>
+<script type="text/javascript" src="/static/js/main/remind/remindAdd.js"></script>

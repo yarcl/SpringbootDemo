@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+
+
 <link rel="stylesheet" href="/static/css/page/admin/usersInfo.css" type="text/css">
+
 <div class="admin-list">
 
     <div class="admin-title">
@@ -33,29 +36,10 @@
                 <td>10001</td>
                 <td>激活</td>
                 <td>
-                    <!--<c:if test="${user.roleId==0}">
-                        <a href="#" class="btn btn-sm btn-default">密码</a>
-                    </c:if>-->
                     <a href="#" class="btn btn-sm btn-info">修改</a>
                     <a href="#" class="btn btn-sm btn-danger">删除</a>
                 </td>
             </tr>
-            <!--<c:forEach var="item" items="${userList}">
-                <tr>
-                    <td>${item.userId}</td>
-                    <td>${item.loginName}</td>
-                    <td>${item.name}</td>
-                    <td>${item.roleId}</td>
-                    <td>${item.isActive}</td>
-                    <td>
-                        <c:if test="${user.roleId==0}">
-                            <a href="#" class="btn btn-sm btn-default">密码</a>
-                        </c:if>
-                        <a href="#" class="btn btn-sm btn-info">修改</a>
-                        <a href="#" class="btn btn-sm btn-danger">删除</a>
-                    </td>
-                </tr>
-            </c:forEach>-->
         </table>
     </div>
     <!--<div class="product-page-tag">

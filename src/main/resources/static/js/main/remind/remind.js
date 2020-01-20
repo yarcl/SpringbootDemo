@@ -14,7 +14,6 @@ window.onload = function() {
         cache:false, // 设置为 false 将不缓存此页面
         dataType: 'json', // 返回对象
         success: function(data) {
-            console.log(data);
             remind.voList = data.content;
         },
         error: function(data) {

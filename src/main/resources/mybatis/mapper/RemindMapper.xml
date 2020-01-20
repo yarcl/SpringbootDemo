@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="com.yarcl.springquart.dao.remind.RemindMapper">
+
+        <sql id="allColumn">
+            /*menu_id, menu_name, menu_url, is_active, is_delete, parent_id*/
+        </sql>
+
+        <resultMap id="rm" type="com.yarcl.springquart.bean.remind.RemindDo">
+            <id property="id" column="id"/>
+            <result property="remindTitle" column="remind_title"></result>
+            <result property="remindFre" column="remind_fre"></result>
+            <result property="remindType" column="remind_type"></result>
+            <result property="remindDate" column="remind_date"></result>
+            <result property="createDate" column="create_date"></result>
+            <result property="updateDate" column="update_date"></result>
+            <result property="remindCount" column="remind_count"></result>
+            <result property="isDelete" column="is_delete"></result>
+            <result property="pushType" column="push_type"></result>
+            <result property="pushPath" column="push_path"></result>
+        </resultMap>
+
+        <select id="queryRemindList" resultMap="rm">
+            select * from REMIND
+        </select>
+
+        <insert id="save" parameterType="com.yarcl.springquart.bean.remind.RemindDo">
+            INSERT INTO
+              REMIND(remind_title, remind_fre, remind_type,
+              remind_date, create_date, update_date, remind_count,
+              is_delete, push_type, push_path)
+            VALUES
+              (#{remindTitle}, #{remindFre}, #{remindType},
+              #{remindDate}, #{createDate}, #{updateDate}, #{remindCount},
+              #{isDelete}, #{pushType}, #{pushPath})
+
+        </insert>
+		
+	</mapper>

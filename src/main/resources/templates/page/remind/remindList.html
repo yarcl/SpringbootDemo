@@ -1,10 +1,11 @@
+<!-- 公共内容 -->
 <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="/static/css/main.css" type="text/css">
 <script type="text/javascript" src="/static/js/jquery.min.js"></script>
 <script src="/static/common/js/vue.js"></script>
+<!-- 公共内容 -->
 
 <div class="product-list">
-
     <div class="product-title">
         <div><h4>>>提醒记录列表</h4></div>
         <div class="razor-btn razor-btn-remind" data-href = "/router/remind/remindAdd.html">
@@ -15,19 +16,23 @@
         <div id="remind">
             <table class="table table-bordered table-hover">
                 <thead>
-                <th width="6%">序号</th>
-                <th width="14%">姓名</th>
-                <th width="20%">生日农历</th>
-                <th width="20%">创建时间</th>
-                <th width="20%">生日次数</th>
-                <th width="20%">操作</th>
+                <th width="5%">序号</th>
+                <th width="20%">主题</th>
+                <th width="20%">提醒日期</th>
+                <th width="10%">提醒类型</th>
+                <th width="10%">提醒频率</th>
+                <th width="10%">推送类型</th>
+                <th width="12%">创建时间</th>
+                <th width="12%">操作</th>
                 </thead>
                 <tr v-for="(item,index) in voList">
-                    <td>{{ index+1 }}</td>
-                    <td>{{ item.isDelete }}</td>
-                    <td>{{ item.pushPath }}</td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.remindTitle }}</td>
+                    <td>{{ item.remindDate }}</td>
+                    <td>{{ item.remindType }}</td>
+                    <td>{{ item.remindFre }}</td>
                     <td>{{ item.pushType }}</td>
-                    <td>{{ item.remindCount }}</td>
+                    <td>{{ item.createDate }}</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-info">修改</a>
                         <a href="#" class="btn btn-sm btn-danger">删除</a>
@@ -39,5 +44,5 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/static/js/main/remind/init.js"></script>
+<script type="text/javascript" src="/static/js/main/remind/clickInit.js"></script>
 <script type="text/javascript" src="/static/js/main/remind/remind.js"></script>
