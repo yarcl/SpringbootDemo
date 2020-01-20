@@ -8,13 +8,11 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
 @ServletComponentScan
-// @MapperScan("com.wbkit.bigScreen.dao.*.*")
-public class SpringQuartzApplication {
+public class Application {
 
-	private static Logger logger = LogManager.getLogger(SpringQuartzApplication.class);
+	private static Logger logger = LogManager.getLogger(Application.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringQuartzApplication.class, args);
-		logger.info("============= SpringBoot Start Success =============");
+		SpringApplication.run(Application.class, args);
 	}
 }

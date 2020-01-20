@@ -29,7 +29,7 @@ public class SchedulerController {
     private String filters;
 
     @IPass
-    @GetMapping("/startScheduler")
+    @GetMapping("/startScheduler.do")
     public String startScheduler() {
         Long dateTime = new Date().getTime();
         Date date = new Date(dateTime+10000);

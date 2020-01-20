@@ -16,6 +16,10 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         IPass methodAnnotation = handlerMethod.getMethodAnnotation(IPass.class);
-        return methodAnnotation != null && methodAnnotation.value().equals(IPass.Auth.PASS);
+        return (methodAnnotation != null && methodAnnotation.value().equals(IPass.Auth.PASS)) || validSession(request);
+    }
+
+    private Boolean validSession(HttpServletRequest request) {
+        return request.getSession() != null;
     }
 }

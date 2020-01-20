@@ -6,7 +6,7 @@ import com.yarcl.springquart.bean.UserBean;
 import com.yarcl.springquart.constant.SystemConstant;
 import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.service.UserService;
-import com.yarcl.springquart.beanView.Response;
+import com.yarcl.springquart.bean.beanView.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +68,6 @@ public class LoginController {
     public ModelAndView loginOut(ModelAndView mav, HttpServletRequest request){
         HttpSession session = request.getSession();
         if(session!=null){
-            //System.out.print(((User)session.getAttribute("user")).getName());
             session.removeAttribute("user");
         }
         mav.setViewName("/login");

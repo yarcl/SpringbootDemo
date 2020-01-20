@@ -17,14 +17,6 @@ public class MenuController {
 
     @GetMapping("/allMenuInfo.do")
     public ModelAndView allMenuInfo(ModelAndView mav, String nowPage){
-        /*if(nowPage!=null && !"".equals(nowPage)){
-            pageBean.setNowPage(Integer.parseInt(nowPage));
-        }
-        List<RazorMenu> menuList = menuService.allMenuInfo(pageBean);
-        pageBean.setCount(menuService.getMenuCount());
-        mav.addObject("page", pageBean);
-        mav.addObject("menuList", menuList);
-        mav.setViewName("/page/menu/allMenuInfo.jsp");*/
 
         return mav;
     }

@@ -40,30 +40,6 @@ public class CommonRouter {
     }
 
     /**
-     * left路由-->路由到左菜单栏
-     * @return
-     * @throws IOException
-     */
-    /*@GetMapping(value="/left", produces = {"application/json;charset=utf-8"})
-    public ModelAndView routeLeft() throws IOException {
-        ModelAndView  mav = new ModelAndView();
-        mav.setViewName("main/left");
-        return mav;
-    }*/
-
-    /**
-     *  header路由-->路由首页上方内容
-     *
-     */
-    /*@GetMapping(value="/header", produces = {"application/json;charset=utf-8"})
-    public ModelAndView routeHeader() throws IOException {
-        ModelAndView  mav = new ModelAndView();
-        mav.setViewName("main/header");
-        return mav;
-    }*/
-
-
-    /**
      * page路由-->page目录下的路由
      * @param path
      * @param pageView

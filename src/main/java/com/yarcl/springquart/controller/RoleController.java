@@ -15,14 +15,6 @@ public class RoleController {
 
     @RequestMapping("/allRoleInfo.do")
     public ModelAndView allRoleInfo(ModelAndView mav, String nowPage){
-        /*if(nowPage!=null && !"".equals(nowPage)){
-            pageBean.setNowPage(Integer.parseInt(nowPage));
-        }
-        List<RazorRole> roleList = roleService.allRoleInfo(pageBean);
-        pageBean.setCount(roleService.getRoleCount());
-        mav.addObject("page", pageBean);
-        mav.addObject("roleList", roleList);
-        mav.setViewName("/page/role/allRoleInfo.jsp");*/
         return mav;
     }
 

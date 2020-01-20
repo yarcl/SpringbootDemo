@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/page/birthday/birthdayAdd.css" type="text/css">
+<div class="person-info">
+    <div class="person-info-title">
+        <div><h4>>>提醒新增</h4></div>
+    </div>
+    <div class="person-info-content">
+        <table class="person-table table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th colspan="2" class="text-center">提醒新增</th>
+            </tr>
+            </thead>
+            <form action="/remind/addRemind.do" method="post">
+                <tr>
+                    <td>主题:</td>
+                    <td><input type="text" name="remindTitle" required></td>
+                </tr>
+                <tr>
+                    <td>提醒日期:</td>
+                    <td><input type="text" name="birthdayDt" required></td>
+                </tr>
+                <tr>
+                    <td>提醒类型:</td>
+                    <td>
+                        <select name="remindType" required>
+                            <option value="1"> 生日</option>
+                            <option value="2"> 账单</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>提醒频率:</td>
+                    <td>
+                        <select name="remindFre" required>
+                            <option value="1"> 每年</option>
+                            <option value="2"> 每月</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>推送类型:</td>
+                    <td>
+                        <select name="remindType" required>
+                            <option value="1"> 邮件</option>
+                            <option value="2"> 短信(暂不支持)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>推送路径:</td>
+                    <td>
+                        <input type="text" name="remindPath" required>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td>是否农历:</td>
+                    <td>
+                        <input type="radio" checked name="isTradition" value="1"/> 是
+                        <input type="radio" name="isTradition" value="0"/> 否
+                    </td>
+                </tr>-->
+                <tr>
+                    <td colspan="2">
+                        <a href="#"><button class="btn btn-primary btn-info" type="submit">保存</button></a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>

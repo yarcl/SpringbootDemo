@@ -18,7 +18,6 @@ public class InterceptorViewConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AuthInterceptor()).addPathPatterns(this.fetchAuthIncp());
-        // registry.addInterceptor(new RouterInterceptor()).addPathPatterns(this.fetchAuthIncp());
     }
 
     /**

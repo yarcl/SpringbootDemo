@@ -31,9 +31,6 @@ public class UserController {
 
     @PostMapping(value = "/editPassword.do")
     public ModelAndView editPassword(String newPwd, String userId, ModelAndView mav){
-
-        //System.out.println(newPwd);
-
         userService.updatePassword(userId, newPwd);
         mav.setViewName("/page/user/personInfo.jsp");
 
