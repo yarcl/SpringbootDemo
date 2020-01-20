@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/product")
+@SuppressWarnings(value = "unused")
 public class ProductController {
 
     @Autowired

@@ -8,9 +8,9 @@ import java.util.List;
 @MapperScan
 public interface ProductMapper {
 
-    public List<RazorProduct> getProductByUserId(String userId, int startPage, int endPage);
+    List<RazorProduct> getProductByUserId(String userId, int startPage, int endPage);
 
 
-    public int getProductCount();
+    int getProductCount();
 
 }

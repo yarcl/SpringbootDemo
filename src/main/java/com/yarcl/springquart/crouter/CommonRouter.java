@@ -14,6 +14,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping(value="/router")
 @RouterPath(value = RouterPath.Router.ROUTER_PATH)
+@SuppressWarnings(value = "unused")
 public class CommonRouter {
     /**
      * login路由

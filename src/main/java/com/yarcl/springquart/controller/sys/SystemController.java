@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/system")
+@SuppressWarnings(value = "unused")
 public class SystemController {
 
     @RequestMapping("/systemInfo.do")

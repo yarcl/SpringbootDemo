@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/user")
+@SuppressWarnings(value = "unused")
 public class UserController {
 
 

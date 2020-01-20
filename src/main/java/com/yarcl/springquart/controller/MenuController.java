@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/menu")
+@SuppressWarnings(value = "unused")
 public class MenuController {
 
     @Autowired

@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/role")
+@SuppressWarnings(value = "unused")
 public class RoleController {
 
     @Autowired

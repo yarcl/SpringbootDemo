@@ -23,6 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/user")
+@SuppressWarnings(value = "unused")
 public class LoginController {
     private Logger logger = LogManager.getLogger(LoginController.class);
 

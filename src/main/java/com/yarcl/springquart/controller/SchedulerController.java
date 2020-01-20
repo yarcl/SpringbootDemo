@@ -20,6 +20,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/scheduler")
+@SuppressWarnings(value = "unused")
 public class SchedulerController {
 
     @Autowired

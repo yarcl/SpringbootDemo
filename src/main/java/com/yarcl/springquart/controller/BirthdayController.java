@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/birthday")
+@SuppressWarnings(value = "unused")
 public class BirthdayController {
 
     @Autowired

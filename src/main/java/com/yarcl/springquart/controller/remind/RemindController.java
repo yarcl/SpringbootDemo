@@ -2,26 +2,29 @@ package com.yarcl.springquart.controller.remind;
 
 import com.yarcl.springquart.bean.beanView.Response;
 import com.yarcl.springquart.bean.remind.RemindAddQo;
-import com.yarcl.springquart.service.ProductService;
+import com.yarcl.springquart.bean.remind.RemindVo;
+import com.yarcl.springquart.service.remind.RemindService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Created by Shares on 2020/1/20.
  */
 @RestController
-@RequestMapping(name = "/remind")
+@RequestMapping(value = "/remind")
+@SuppressWarnings(value = "unused")
 public class RemindController {
 
     @Autowired
-    private ProductService productService;
+    private RemindService remindService;
 
     @GetMapping("/remindList.do")
-    public ModelAndView remindInfo(ModelAndView mav){
-        System.out.println("hello remind!!!");
-        mav.setViewName("/page/remind/remindList.html");
-        return mav;
+    public Response remindInfo(ModelAndView mav){
+        List<RemindVo> remindVoList = remindService.queryRemindList();
+        return Response.success(remindVoList);
     }
 
     @PostMapping(value = "addRemind.do")
