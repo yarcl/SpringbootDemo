@@ -1,4 +1,4 @@
-package com.yarcl.springquart.controller;
+package com.yarcl.springquart.controller.remind;
 
 import com.yarcl.springquart.bean.beanView.Response;
 import com.yarcl.springquart.bean.remind.RemindAddQo;
@@ -17,14 +17,14 @@ public class RemindController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("remindList.do")
+    @GetMapping("/remindList.do")
     public ModelAndView remindInfo(ModelAndView mav){
         System.out.println("hello remind!!!");
         mav.setViewName("/page/remind/remindList.html");
         return mav;
     }
 
-    @PostMapping(value = "addRemind.do", produces = {"application/json;charset=utf-8"})
+    @PostMapping(value = "addRemind.do")
     public Response remindAdd(@RequestBody RemindAddQo remindAddQo) {
         System.out.println("新增提醒内容");
         return Response.success();

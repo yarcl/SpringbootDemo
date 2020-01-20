@@ -1,4 +1,4 @@
-package com.yarcl.springquart.controller;
+package com.yarcl.springquart.controller.sys;
 
 import com.yarcl.springquart.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;

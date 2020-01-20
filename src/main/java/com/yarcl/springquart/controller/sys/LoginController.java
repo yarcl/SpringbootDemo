@@ -1,4 +1,4 @@
-package com.yarcl.springquart.controller;
+package com.yarcl.springquart.controller.sys;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yarcl.springquart.bean.RazorUser;
