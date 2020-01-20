@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yarcl.springquart.dao.mysql.UserMapper">
 
-  <select id="findUserInfo" resultType="com.yarcl.springquart.bean.UserBean">
+  <select id="findUserInfo" resultType="com.yarcl.springquart.bean.user.UserBean">
     select id,  name as username, age,password from razor_user
   </select>
 
@@ -10,7 +10,7 @@
     user_id, login_name, login_pwd, name, role_id, is_active
   </sql>
 
-  <resultMap id="rm" type="com.yarcl.springquart.bean.RazorUser">
+  <resultMap id="rm" type="com.yarcl.springquart.bean.user.User">
     <id property="userId" column="user_id"/>
     <result property="loginName" column="login_name"></result>
     <result property="loginPwd" column="login_pwd"></result>
@@ -27,7 +27,7 @@
     login_pwd = #{param2}
   </select>
 
-  <update id="updateUser" parameterType="com.yarcl.springquart.bean.RazorUser">
+  <update id="updateUser" parameterType="com.yarcl.springquart.bean.user.User">
 
     update RAZOR_USER set login_name = #{loginName, jdbcType=VARCHAR},name = #{name},
     role_id = #{roleId}, is_active = #{isActive} where user_id = #{userId}

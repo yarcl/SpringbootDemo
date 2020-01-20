@@ -1,6 +1,6 @@
 package com.yarcl.springquart.dao;
 
-import com.yarcl.springquart.bean.RazorProduct;
+import com.yarcl.springquart.bean.product.Product;
 import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 @MapperScan
 public interface ProductMapper {
 
-    List<RazorProduct> getProductByUserId(String userId, int startPage, int endPage);
+    List<Product> getProductByUserId(String userId, int startPage, int endPage);
 
 
     int getProductCount();

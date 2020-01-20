@@ -1,9 +1,9 @@
-package com.yarcl.springquart.bean;
+package com.yarcl.springquart.bean.menu;
 
 import lombok.Data;
 
 @Data
-public class RazorMenu {
+public class Menu {
     private int menuId;
     private String menuName;
     private String menuUrl;
@@ -11,10 +11,10 @@ public class RazorMenu {
     private String isDelete;
     private String parentId;
 
-    public RazorMenu() {
+    public Menu() {
     }
 
-    public RazorMenu(int menuId, String menuName, String menuUrl, String isActive, String isDelete, String parentId) {
+    public Menu(int menuId, String menuName, String menuUrl, String isActive, String isDelete, String parentId) {
         this.menuId = menuId;
         this.menuName = menuName;
         this.menuUrl = menuUrl;

@@ -1,12 +1,12 @@
 package com.yarcl.springquart.controller.sys;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yarcl.springquart.bean.RazorUser;
-import com.yarcl.springquart.bean.UserBean;
+import com.yarcl.springquart.bean.user.User;
+import com.yarcl.springquart.bean.user.UserBean;
 import com.yarcl.springquart.constant.SystemConstant;
 import com.yarcl.springquart.interceptor.interceptAnno.IPass;
 import com.yarcl.springquart.service.UserService;
-import com.yarcl.springquart.bean.beanView.Response;
+import com.yarcl.springquart.bean.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ public class LoginController {
     @ResponseBody
     @PostMapping(value = "login.do")
     public Response login(@RequestParam("username") String username, @RequestParam("password") String password){
-        RazorUser user = userService.login(username,password);
+        User user = userService.login(username,password);
         if(user!=null){
             logger.info(SystemConstant.LONGIN_SUCCESS, user.getName());
             user.setLoginPwd("");

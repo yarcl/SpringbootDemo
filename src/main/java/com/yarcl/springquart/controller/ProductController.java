@@ -17,7 +17,6 @@ public class ProductController {
 
     @RequestMapping("/myProductInfo.do")
     public ModelAndView allProductInfo(ModelAndView mav, String userId, String nowPage){
-        System.out.println("hello product!!!");
         mav.setViewName("/page/product/productList.html");
         return mav;
     }

@@ -1,7 +1,7 @@
 package com.yarcl.springquart.service.impl;
 
-import com.yarcl.springquart.bean.RazorUser;
-import com.yarcl.springquart.bean.UserBean;
+import com.yarcl.springquart.bean.user.User;
+import com.yarcl.springquart.bean.user.UserBean;
 import com.yarcl.springquart.dao.mysql.UserMapper;
 import com.yarcl.springquart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUserInfo();
     }
 
-    public RazorUser login(String username, String password) {
+    public User login(String username, String password) {
         return userMapper.login(username, password);
     }
 
@@ -31,11 +31,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.getAllUsersInfo(CaculatePage.caculateStart(pageBean), CaculatePage.caculateEnd(pageBean));
     }*/
 
-    public int updateUser(RazorUser user) {
+    public int updateUser(User user) {
         return userMapper.updateUser(user);
     }
 
-    public RazorUser getUserById(int id) {
+    public User getUserById(int id) {
         return userMapper.getUserById(id);
     }
 

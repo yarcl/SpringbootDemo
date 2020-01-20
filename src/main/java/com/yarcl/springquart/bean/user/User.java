@@ -1,9 +1,9 @@
-package com.yarcl.springquart.bean;
+package com.yarcl.springquart.bean.user;
 
 import lombok.Data;
 
 @Data
-public class RazorUser {
+public class User {
 
     private int userId;
     private String loginName;
@@ -12,11 +12,11 @@ public class RazorUser {
     private String roleId;
     private String isActive;
 
-    public RazorUser() {
+    public User() {
 
     }
 
-    public RazorUser(int userId, String loginName, String loginPwd, String name, String roleId, String isActive) {
+    public User(int userId, String loginName, String loginPwd, String name, String roleId, String isActive) {
         this.userId = userId;
         this.loginName = loginName;
         this.loginPwd = loginPwd;

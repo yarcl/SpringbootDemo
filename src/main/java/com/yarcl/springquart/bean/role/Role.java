@@ -1,18 +1,18 @@
-package com.yarcl.springquart.bean;
+package com.yarcl.springquart.bean.role;
 
 import lombok.Data;
 
 @Data
-public class RazorRole {
+public class Role {
     private int roleId;
     private String roleName;
     private String isActive;
     private String isDelete;
 
-    public RazorRole() {
+    public Role() {
     }
 
-    public RazorRole(int roleId, String roleName, String isActive, String isDelete) {
+    public Role(int roleId, String roleName, String isActive, String isDelete) {
         this.roleId = roleId;
         this.roleName = roleName;
         this.isActive = isActive;

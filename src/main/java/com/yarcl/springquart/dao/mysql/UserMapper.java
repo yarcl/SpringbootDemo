@@ -1,7 +1,7 @@
 package com.yarcl.springquart.dao.mysql;
 
-import com.yarcl.springquart.bean.RazorUser;
-import com.yarcl.springquart.bean.UserBean;
+import com.yarcl.springquart.bean.user.User;
+import com.yarcl.springquart.bean.user.UserBean;
 import org.mybatis.spring.annotation.MapperScan;
 import java.util.List;
 
@@ -12,15 +12,15 @@ import java.util.List;
 public interface UserMapper {
     List<UserBean> findUserInfo();
 
-    RazorUser login(String username, String password);
+    User login(String username, String password);
 
-    int updateUser(RazorUser user);
+    int updateUser(User user);
 
-    RazorUser getUserById(int id);
+    User getUserById(int id);
 
     int updatePassword(String userId, String newPwd);
 
-    List<RazorUser> getAllUsersInfo(int startPage, int endPage);
+    List<User> getAllUsersInfo(int startPage, int endPage);
 
     int getUserCount();
 }

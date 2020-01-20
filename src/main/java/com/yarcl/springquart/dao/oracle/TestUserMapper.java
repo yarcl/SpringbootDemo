@@ -1,6 +1,6 @@
 package com.yarcl.springquart.dao.oracle;
 
-import com.yarcl.springquart.bean.UserBean;
+import com.yarcl.springquart.bean.user.UserBean;
 import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;

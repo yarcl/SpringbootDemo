@@ -1,7 +1,7 @@
 package com.yarcl.springquart.service;
 
-import com.yarcl.springquart.bean.RazorUser;
-import com.yarcl.springquart.bean.UserBean;
+import com.yarcl.springquart.bean.user.User;
+import com.yarcl.springquart.bean.user.UserBean;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ public interface UserService {
 
     List<UserBean> getAllUserInfo();
 
-    RazorUser login(String username, String password);
+    User login(String username, String password);
 
-    int updateUser(RazorUser user);
+    int updateUser(User user);
 
-    RazorUser getUserById(int id);
+    User getUserById(int id);
 
     int updatePassword(String userId, String newPwd);
 

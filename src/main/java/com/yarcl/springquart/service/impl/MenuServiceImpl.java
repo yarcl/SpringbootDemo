@@ -2,7 +2,7 @@ package com.yarcl.springquart.service.impl;
 
 
 import com.yarcl.springquart.bean.PageBean;
-import com.yarcl.springquart.bean.RazorMenu;
+import com.yarcl.springquart.bean.menu.Menu;
 import com.yarcl.springquart.dao.MenuMapper;
 import com.yarcl.springquart.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class MenuServiceImpl implements MenuService {
     }*/
 
     @Override
-    public List<RazorMenu> allMenuInfo(PageBean pageBean) {
+    public List<Menu> allMenuInfo(PageBean pageBean) {
         return null;
     }
 

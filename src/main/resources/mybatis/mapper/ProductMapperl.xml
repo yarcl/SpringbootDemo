@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 	<mapper namespace="com.yarcl.springquart.dao.ProductMapper">
-        <resultMap id="rm" type="com.yarcl.springquart.bean.RazorProduct">
+        <resultMap id="rm" type="com.yarcl.springquart.bean.product.Product">
             <id property="id" column="id"/>
             <result property="name" column="name"></result>
             <result property="description" column="description"></result>

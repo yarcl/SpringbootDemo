@@ -1,4 +1,4 @@
-package com.yarcl.springquart.bean;
+package com.yarcl.springquart.bean.user;
 
 import lombok.Data;
 

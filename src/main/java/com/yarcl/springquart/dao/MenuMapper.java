@@ -1,6 +1,6 @@
 package com.yarcl.springquart.dao;
 
-import com.yarcl.springquart.bean.RazorMenu;
+import com.yarcl.springquart.bean.menu.Menu;
 import org.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 @MapperScan
 public interface MenuMapper {
 
-    List<RazorMenu> allMenuInfo(int startPage, int endPage);
+    List<Menu> allMenuInfo(int startPage, int endPage);
 
     int getMenuCount();
 
