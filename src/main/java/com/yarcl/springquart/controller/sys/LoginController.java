@@ -68,7 +68,7 @@ public class LoginController {
     @GetMapping("/loginOut.do")
     public ModelAndView loginOut(ModelAndView mav, HttpServletRequest request){
         HttpSession session = request.getSession();
-        if(session!=null){
+        if(session != null){
             session.removeAttribute("user");
         }
         mav.setViewName("/login");

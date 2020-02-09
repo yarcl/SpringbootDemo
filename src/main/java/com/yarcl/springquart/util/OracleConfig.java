@@ -29,7 +29,7 @@ import java.sql.SQLException;
 
 @Configuration
 @EnableAutoConfiguration
-@MapperScan(basePackages = {"com.yarcl.springquart.dao.oracle"},  sqlSessionTemplateRef="oracleSessionTemplate")
+// @MapperScan(basePackages = {"com.yarcl.springquart.dao.oracle"},  sqlSessionTemplateRef="oracleSessionTemplate")
 public class OracleConfig {
     // 构造单例对象
     private static PropertiesConfiguration propertiesConfiguration = PropertiesConfiguration.getSingleInstance(true);
