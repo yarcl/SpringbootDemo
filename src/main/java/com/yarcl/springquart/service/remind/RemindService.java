@@ -13,4 +13,6 @@ public interface RemindService {
     List<RemindVo> queryRemindList();
 
     RemindVo save(RemindAddQo remindAddQo);
+
+    int deleteRemind(String remindId);
 }

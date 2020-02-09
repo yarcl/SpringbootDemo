@@ -35,7 +35,8 @@
                     <td>{{ item.createDate }}</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-info">修改</a>
-                        <a href="#" class="btn btn-sm btn-danger">删除</a>
+                        <!--<a :href="'/remind/deleteRemind.do?id='+item.id" class="btn btn-sm btn-danger">删除</a>-->
+                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" :data-id="item.id" onclick="deleteRemind(this)">删除</a>
                     </td>
                 </tr>
 

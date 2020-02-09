@@ -39,6 +39,11 @@ public class RemindServiceImpl implements RemindService {
         return RemindVo.builder().build();
     }
 
+    @Override
+    public int deleteRemind(String remindId) {
+        return remindMapper.deleteRemind(remindId);
+    }
+
     private RemindVo buildOneVo(RemindDo remindDo) {
         RemindVo remindVo = RemindVo.builder().build();
         BeanUtils.copyProperties(remindDo, remindVo);

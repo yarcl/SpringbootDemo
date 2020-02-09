@@ -6,6 +6,7 @@ import com.yarcl.springquart.bean.remind.RemindDo;
 import com.yarcl.springquart.bean.remind.RemindVo;
 import com.yarcl.springquart.service.remind.RemindService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,10 +27,15 @@ public class RemindController {
     @GetMapping("/remindList.do")
     public Response remindInfo(){
         List<RemindVo> remindVoList = remindService.queryRemindList();
-        RemindVo remindVo = RemindVo.builder().remindCount("1").remindDate(new Date())
-                .remindFre("2").remindTitle("11").remindType("2").createDate(new Date()).isDelete("0").pushPath("11").pushType("222").build();
-        remindVoList.add(remindVo);
         return Response.success(remindVoList);
+    }
+
+    @GetMapping("/deleteRemind.do")
+    public Response deleteRemind(@RequestParam("id") String remindId) {
+        if(StringUtils.isEmpty(remindId))
+            return Response.error("参数传递失败");
+        int num = remindService.deleteRemind(remindId);
+        return Response.success(num);
     }
 
     @ResponseBody

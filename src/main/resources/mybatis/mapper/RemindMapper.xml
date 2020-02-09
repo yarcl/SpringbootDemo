@@ -37,5 +37,9 @@
               #{isDelete}, #{pushType}, #{pushPath})
 
         </insert>
+
+        <update id="deleteRemind" parameterType="string">
+            DELETE FROM REMIND WHERE ID = #{param1}
+        </update>
 		
 	</mapper>

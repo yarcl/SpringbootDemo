@@ -23,4 +23,11 @@ public interface RemindMapper {
      * @return
      */
     int save(RemindDo remindDo);
+
+    /**
+     * 删除提醒内容
+     * @param remindId
+     * @return
+     */
+    int deleteRemind(String remindId);
 }
